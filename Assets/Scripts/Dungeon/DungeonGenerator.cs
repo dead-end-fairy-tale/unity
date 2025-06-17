@@ -30,12 +30,19 @@ public class DungeonGenerator : MonoBehaviour
     private Cell[,] board;
     private int maxVisits;
 
-    void Start()
+    private void Start()
     {
-        InitializeBoard();
-        CalculateMaxVisits();
-        CarveMaze();
-        PlaceRooms();
+        try
+        {
+            InitializeBoard();
+            CalculateMaxVisits();
+            CarveMaze();
+            PlaceRooms();
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"[DungeonGenerator] Start() 실패: {ex.GetType().Name} – {ex.Message}");
+        }
     }
 
     private void InitializeBoard()
@@ -49,45 +56,59 @@ public class DungeonGenerator : MonoBehaviour
     private void CalculateMaxVisits()
     {
         int total = Size.x * Size.y;
-        maxVisits = (TargetRoomCount > 0)
+        maxVisits = TargetRoomCount > 0
             ? Mathf.Clamp(TargetRoomCount, 1, total)
             : Mathf.Clamp(Mathf.RoundToInt(total * CoverageRatio), 1, total);
     }
 
     private void CarveMaze()
     {
-        var stack = new Stack<Vector2Int>();
-        Vector2Int current = StartCoord;
-        int visited = 0;
-
-        while (visited < maxVisits && (stack.Count > 0 || HasUnvisitedNeighbors(current)))
+        try
         {
-            if (!board[current.x, current.y].Visited)
-            {
-                board[current.x, current.y].Visited = true;
-                visited++;
-            }
+            var stack = new Stack<Vector2Int>();
+            Vector2Int current = StartCoord;
+            int visited = 0;
 
-            var neighbors = GetUnvisitedNeighbors(current);
-            if (neighbors.Count == 0)
-                current = stack.Pop();
-            else
+            while (visited < maxVisits && (stack.Count > 0 || HasUnvisitedNeighbors(current)))
             {
-                stack.Push(current);
-                Vector2Int next = neighbors[UnityEngine.Random.Range(0, neighbors.Count)];
-                ConnectCells(current, next);
-                current = next;
+                if (!board[current.x, current.y].Visited)
+                {
+                    board[current.x, current.y].Visited = true;
+                    visited++;
+                }
+
+                var neighbors = GetUnvisitedNeighbors(current);
+                if (neighbors.Count == 0)
+                {
+                    current = stack.Pop();
+                }
+                else
+                {
+                    stack.Push(current);
+                    Vector2Int next = neighbors[UnityEngine.Random.Range(0, neighbors.Count)];
+                    ConnectCells(current, next);
+                    current = next;
+                }
             }
+        }
+        catch (ArgumentOutOfRangeException ex)
+        {
+            Debug.LogError($"[CarveMaze] 배열 인덱스 범위 오류: {ex.Message}");
+        }
+        catch (NullReferenceException ex)
+        {
+            Debug.LogError($"[CarveMaze] 널 참조 오류: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"[CarveMaze] 예기치 못한 오류: {ex}");
         }
     }
 
-    /// <summary>
-    /// StartCoord에서 BFS 탐색으로 가장 멀리 떨어진 **방문된** 셀 좌표를 반환
-    /// </summary>
     private Vector2Int FindBossRoomCoord()
     {
         var queue = new Queue<Vector2Int>();
-        var dist  = new Dictionary<Vector2Int,int>();
+        var dist = new Dictionary<Vector2Int, int>();
 
         queue.Enqueue(StartCoord);
         dist[StartCoord] = 0;
@@ -105,10 +126,9 @@ public class DungeonGenerator : MonoBehaviour
                 farthest = cur;
             }
 
-            // 연결된 이웃으로만 확장, 그리고 그 셀도 반드시 Visited 여야 함
             foreach (Direction dir in Enum.GetValues(typeof(Direction)))
             {
-                if (!board[cur.x, cur.y].Connections[(int)dir])
+                if (!board[cur.x, cur.y].Connections[(int)dir]) 
                     continue;
 
                 Vector2Int next = dir switch
@@ -120,15 +140,11 @@ public class DungeonGenerator : MonoBehaviour
                     _               => cur
                 };
 
-                // 방문된 셀만 추적
-                if (!board[next.x, next.y].Visited)
+                if (!board[next.x, next.y].Visited || dist.ContainsKey(next)) 
                     continue;
 
-                if (!dist.ContainsKey(next))
-                {
-                    dist[next] = cd + 1;
-                    queue.Enqueue(next);
-                }
+                dist[next] = cd + 1;
+                queue.Enqueue(next);
             }
         }
 
@@ -137,65 +153,101 @@ public class DungeonGenerator : MonoBehaviour
 
     private void PlaceRooms()
     {
-        // 가장 먼 '방문된' 셀을 보스방으로 지정
-        Vector2Int bossCoord = FindBossRoomCoord();
-        Debug.Log($"BossRoom at {bossCoord}");
-
-        for (int x = 0; x < Size.x; x++)
-        for (int y = 0; y < Size.y; y++)
+        try
         {
-            var cell = board[x, y];
-            if (!cell.Visited) continue;
+            Vector2Int bossCoord = FindBossRoomCoord();
+            Debug.Log($"[PlaceRooms] BossRoom 위치: {bossCoord}");
 
-            bool isBoss = (x == bossCoord.x && y == bossCoord.y);
-
-            // 연결 정보 복사 및 필터링
-            var filtered = (bool[])cell.Connections.Clone();
-            foreach (Direction dir in Enum.GetValues(typeof(Direction)))
+            for (int x = 0; x < Size.x; x++)
+            for (int y = 0; y < Size.y; y++)
             {
-                Vector2Int neighbor = dir switch
+                var cell = board[x, y];
+                if (!cell.Visited) continue;
+
+                bool isBoss = (x == bossCoord.x && y == bossCoord.y);
+
+                var filtered = (bool[])cell.Connections.Clone();
+                foreach (Direction dir in Enum.GetValues(typeof(Direction)))
                 {
-                    Direction.Up    => new Vector2Int(x, y + 1),
-                    Direction.Down  => new Vector2Int(x, y - 1),
-                    Direction.Left  => new Vector2Int(x - 1, y),
-                    Direction.Right => new Vector2Int(x + 1, y),
-                    _               => throw new ArgumentOutOfRangeException()
-                };
+                    Vector2Int neighbor = dir switch
+                    {
+                        Direction.Up    => new Vector2Int(x, y + 1),
+                        Direction.Down  => new Vector2Int(x, y - 1),
+                        Direction.Left  => new Vector2Int(x - 1, y),
+                        Direction.Right => new Vector2Int(x + 1, y),
+                        _               => throw new ArgumentOutOfRangeException()
+                    };
 
-                bool hasNeighbor =
-                    neighbor.x >= 0 && neighbor.x < Size.x &&
-                    neighbor.y >= 0 && neighbor.y < Size.y &&
-                    board[neighbor.x, neighbor.y].Visited;
+                    bool hasNeighbor =
+                        neighbor.x >= 0 && neighbor.x < Size.x &&
+                        neighbor.y >= 0 && neighbor.y < Size.y &&
+                        board[neighbor.x, neighbor.y].Visited;
 
-                if (!hasNeighbor)
-                    filtered[(int)dir] = false;
+                    if (!hasNeighbor)
+                        filtered[(int)dir] = false;
+                }
+
+                GameObject instance;
+                if (isBoss)
+                {
+                    instance = Instantiate(
+                        BossRoomPrefab,
+                        new Vector3(x * Offset.x, 0f, y * Offset.y),
+                        Quaternion.identity,
+                        transform
+                    );
+                    instance.name = "BossRoom";
+                }
+                else
+                {
+                    int ruleIndex = ChooseRule(x, y);
+                    var rule = Rules[ruleIndex];
+                    instance = Instantiate(
+                        rule.RoomPrefab,
+                        new Vector3(x * Offset.x, 0f, y * Offset.y),
+                        Quaternion.identity,
+                        transform
+                    );
+                    instance.name = $"Room_{x}_{y}";
+                }
+
+                var behaviour = instance.GetComponent<RoomBehaviour>();
+                if (behaviour != null)
+                    behaviour.UpdateRoom(filtered);
             }
-
-            // 보스방이면 BossRoomPrefab, 아니면 룰에 따라 일반 프리팹
-            GameObject prefab = isBoss
-                ? BossRoomPrefab
-                : Rules[ChooseRule(x, y)].RoomPrefab;
-
-            var roomObj = Instantiate(
-                prefab,
-                new Vector3(x * Offset.x, 0f, y * Offset.y),
-                Quaternion.identity,
-                transform
-            ).GetComponent<RoomBehaviour>();
-
-            // 문·벽 상태 업데이트 (보스방도 포함)
-            roomObj.UpdateRoom(filtered);
-            roomObj.name = isBoss ? "BossRoom" : $"Room_{x}_{y}";
+        }
+        catch (ArgumentOutOfRangeException ex)
+        {
+            Debug.LogError($"[PlaceRooms] 배열 인덱스 범위 오류: {ex.Message}");
+        }
+        catch (NullReferenceException ex)
+        {
+            Debug.LogError($"[PlaceRooms] 널 참조 오류: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"[PlaceRooms] 예기치 못한 오류: {ex}");
         }
     }
 
     private void ConnectCells(Vector2Int aPos, Vector2Int bPos)
     {
-        Direction dirToB = GetDirection(aPos, bPos);
-        Direction dirToA = GetOpposite(dirToB);
+        try
+        {
+            Direction dirToB = GetDirection(aPos, bPos);
+            Direction dirToA = GetOpposite(dirToB);
 
-        board[aPos.x, aPos.y].Connections[(int)dirToB] = true;
-        board[bPos.x, bPos.y].Connections[(int)dirToA] = true;
+            board[aPos.x, aPos.y].Connections[(int)dirToB] = true;
+            board[bPos.x, bPos.y].Connections[(int)dirToA] = true;
+        }
+        catch (ArgumentException ex)
+        {
+            Debug.LogError($"[ConnectCells] 유효하지 않은 방향: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"[ConnectCells] 예기치 못한 오류: {ex}");
+        }
     }
 
     private Direction GetDirection(Vector2Int from, Vector2Int to)
@@ -248,7 +300,7 @@ public class DungeonGenerator : MonoBehaviour
             if (status == SpawnStatus.Possible)
                 candidates.Add(i);
         }
-        return (candidates.Count > 0)
+        return candidates.Count > 0
             ? candidates[UnityEngine.Random.Range(0, candidates.Count)]
             : 0;
     }
