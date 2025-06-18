@@ -89,18 +89,36 @@ public class LoginSignUpManager : MonoBehaviour
 
     public void OnSignUpButtonClick()
     {
-        //password, password 확인 칸이 둘이 같은지 확인 후
-        //true  -   다음로직으로 |    false   -   오류 메세지 팝업
-        if (registerPasswordInputField.text != registerCheckPasswordInputField.text) 
+        string username = registerIdInputField.text;
+        string password = registerPasswordInputField.text;
+        string checkPassword = registerCheckPasswordInputField.text;
+        
+        if (password != checkPassword)
+        {
             StartCoroutine(Error(_passwordError));
+            return;
+        }
         
-        
-        //만일 이미 존재하는 id인지 확인이 필요하다면 서버에 보내서 확인
-        //true  -   다음로직으로 |    false   -   오류 메세지 팝업
-        
-        // id, password 서버에 등록 
-        
-        // 튜토리얼 씬으로 이동
+
+        StartCoroutine(Api_SignUp.Send(username, password, (status, message) =>
+        {
+            Debug.Log(status);
+
+            if (status)
+            {
+                Debug.Log("SignUp successful");
+                // StartCoroutine(SignUpComplete(message));
+                //튜토리얼 씬으로 이동
+
+            }
+            else
+            {
+                // StartCoroutine(Error(message));
+                Debug.LogWarning($"Login failed (status = {status}): {message}");
+            }
+            
+            ResetRegisterText();
+        }));
     }
 
     public IEnumerator Error(string error)
@@ -112,6 +130,17 @@ public class LoginSignUpManager : MonoBehaviour
          
          errorObj.SetActive(false);
          ResetErrorText();
+    }
+    
+    public IEnumerator SignUpComplete(string completeMessage)
+    {
+        errorText.text = completeMessage;
+        errorObj.SetActive(true);
+        
+        yield return new WaitForSeconds(1f);
+         
+        errorObj.SetActive(false);
+        ResetErrorText();
     }
     
     #region ResetText
