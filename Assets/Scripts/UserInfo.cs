@@ -3,24 +3,28 @@ using UnityEngine;
 public class UserInfo : MonoBehaviour
 {
 
-    public static UserInfo instance { get; private set; }
+    public static UserInfo Instance { get; private set; }
+
+    [SerializeField] public string username;
+    [SerializeField] public string accessToken;
 
     void Awake()
     {
-        if (instance != null)
+        if (Instance != null)
         {
-            Destroy(instance.gameObject);
-            instance = null;
+            Destroy(Instance.gameObject);
+            Instance = null;
         }
-        instance = this;
+        Instance = this;
 
         DontDestroyOnLoad(gameObject);
     }
 
-    //필요하면 여기에 유저 정보 저장?
-
-    public void SetUserInfo()
+    public void SetUserInfo(string givenUsername, string token)
     {
+        username = givenUsername;
+        accessToken = token;
         
+        Debug.Log($"Set User Info by {username}");
     }
 }

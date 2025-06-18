@@ -16,6 +16,8 @@ public class Api_SignUp : MonoBehaviour
     {
        public bool status;
        public string message;
+       public string username;
+       public string token;
     }
     
     public static IEnumerator Send(string username, string password, Action<bool, string> onComplete)
@@ -45,6 +47,7 @@ public class Api_SignUp : MonoBehaviour
         if (webRequest.result == UnityWebRequest.Result.Success)
         {
             onComplete?.Invoke(result.status, result.message);
+            UserInfo.Instance.SetUserInfo(result.username, result.token);
         }
         else
         {

@@ -16,7 +16,7 @@ public class Api_Login : MonoBehaviour
     {
         public bool status;
         public string username;
-        public string accessToken;
+        public string token;
         public string message;
     }
 
@@ -47,6 +47,7 @@ public class Api_Login : MonoBehaviour
         if (webRequest.result == UnityWebRequest.Result.Success)
         {
             onComplete?.Invoke(result.status, result.message);
+            UserInfo.Instance.SetUserInfo(result.username, result.token);
         }
         else
         {

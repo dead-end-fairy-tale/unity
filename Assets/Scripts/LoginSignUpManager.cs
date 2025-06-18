@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class LoginSignUpManager : MonoBehaviour
 {
+    //추후 로그인이나 에러 로그 띄울때 TA에셋 받아서 적용 및 error 코루틴에 적용 후 실행
+    
     public GameObject startPanel;
     public GameObject loginPanel;
     public GameObject registerPanel;
@@ -75,14 +77,12 @@ public class LoginSignUpManager : MonoBehaviour
 
     public void OnGoToSingUpButtonClick()
     {
-        //로그인 메뉴 끄고 회원가입 메뉴 띄우기
         ResetLoginText();
         GoToRegisterPanel();
     }
 
     public void OnReturnLoginButtonClick()
     {
-        //회원가입 메뉴 끄고 로그인 메뉴 띄우기
         ResetRegisterText();
         GoToLoginPanel();
     }
@@ -107,7 +107,7 @@ public class LoginSignUpManager : MonoBehaviour
             if (status)
             {
                 Debug.Log("SignUp successful");
-                // StartCoroutine(SignUpComplete(message));
+                // StartCoroutine(SignUpComplete());
                 //튜토리얼 씬으로 이동
 
             }
@@ -132,15 +132,13 @@ public class LoginSignUpManager : MonoBehaviour
          ResetErrorText();
     }
     
-    public IEnumerator SignUpComplete(string completeMessage)
+    public IEnumerator SignUpComplete()
     {
-        errorText.text = completeMessage;
-        errorObj.SetActive(true);
+        //환영메세지? 키기
         
         yield return new WaitForSeconds(1f);
          
-        errorObj.SetActive(false);
-        ResetErrorText();
+        //끄기
     }
     
     #region ResetText
