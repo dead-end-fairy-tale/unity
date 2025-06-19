@@ -65,6 +65,18 @@ public class LoginSignUpManager : MonoBehaviour
         ResetRegisterText();
         GoToLoginPanel();
     }
+
+    public void OnErrorOKButtonClick()
+    {
+        errorObj.SetActive(false);
+        ResetErrorText();
+    }
+    
+    public void OnNoticeOKButtonClick()
+    {
+        noticeObj.SetActive(false);
+        ResetNoticeText();
+    }
     
     public void OnLoginButtonClick()
     {
@@ -87,7 +99,7 @@ public class LoginSignUpManager : MonoBehaviour
                 }
                 else
                 {
-                    StartCoroutine(Error(message));
+                    Error(message);
                     Debug.LogWarning($"Login failed (status = {status}): {message}");
                 }
 
@@ -103,7 +115,7 @@ public class LoginSignUpManager : MonoBehaviour
 
         if (IsNull(email))
         {
-            StartCoroutine(Error("email " + NotificationTexts.TextNullError));
+            Error("email " + NotificationTexts.TextNullError);
             return;
         }
 
@@ -111,11 +123,11 @@ public class LoginSignUpManager : MonoBehaviour
         {
             if (status)
             {
-                StartCoroutine(Notice(message));
+                Notice(message);
             }
             else
             {
-                StartCoroutine(Error(message));
+                Error(message);
             }
         }));
 
@@ -128,7 +140,7 @@ public class LoginSignUpManager : MonoBehaviour
         
         if (IsNull(email) || IsNull(verifyCode))
         {
-            StartCoroutine(Error("email or verifyCode " + NotificationTexts.TextNullError));
+            Error("email or verifyCode " + NotificationTexts.TextNullError);
             return;
         }
 
@@ -137,12 +149,12 @@ public class LoginSignUpManager : MonoBehaviour
             if (status)
             {
                 _isEmailVerified = true;
-                StartCoroutine(Notice(message));
+                Notice(message);
             }
             else
             {
                 _isEmailVerified = false;
-                StartCoroutine(Error(message));
+                Error(message);
             }
         }));
     }
@@ -157,19 +169,19 @@ public class LoginSignUpManager : MonoBehaviour
 
         if (IsNull(email) || IsNull(username) || IsNull(password) || IsNull(checkPassword))
         {
-            StartCoroutine(Error("All " + NotificationTexts.TextNullError));
+            Error("All " + NotificationTexts.TextNullError);
             return;
         }
 
         if (!_isEmailVerified)
         {
-            StartCoroutine(Error(NotificationTexts.EmailVerifyError));
+            Error(NotificationTexts.EmailVerifyError);
             return;
         }
         
         if (password != checkPassword)
         {
-            StartCoroutine(Error(NotificationTexts.PasswordError));
+            Error(NotificationTexts.PasswordError);
             return;
         }
         
@@ -181,13 +193,13 @@ public class LoginSignUpManager : MonoBehaviour
             if (status)
             {
                 Debug.Log("SignUp successful");
-                StartCoroutine(Notice(message));
+                Notice(message);
                 //튜토리얼 씬으로 이동
 
             }
             else
             {
-                StartCoroutine(Error(message));
+                Error(message);
                 Debug.LogWarning($"Login failed (status = {status}): {message}");
             }
             
@@ -195,26 +207,16 @@ public class LoginSignUpManager : MonoBehaviour
         }));
     }
 
-    public IEnumerator Error(string error)
+    public void Error(string error)
     {
         errorText.text = error;
         errorObj.SetActive(true);
-        
-         yield return new WaitForSeconds(1f);
-         
-         errorObj.SetActive(false);
-         ResetErrorText();
     }
     
-    public IEnumerator Notice(string notice)
+    public void Notice(string notice)
     {
         noticeText.text = notice;
         noticeObj.SetActive(true);
-        
-        yield return new WaitForSeconds(1f);
-         
-        noticeObj.SetActive(false);
-        ResetNoticeText();
     }
 
     public bool IsNull(string text)
