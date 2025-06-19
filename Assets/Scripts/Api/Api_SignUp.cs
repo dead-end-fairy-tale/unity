@@ -10,6 +10,8 @@ public class Api_SignUp : MonoBehaviour
     {
         public string username;
         public string password;
+        public string email;
+
     }
     
     public class SignUpResponse
@@ -20,12 +22,13 @@ public class Api_SignUp : MonoBehaviour
        public string token;
     }
     
-    public static IEnumerator Send(string username, string password, Action<bool, string> onComplete)
+    public static IEnumerator Send(string username, string password, string email, Action<bool, string> onComplete)
     {
         var payload = new SignUpRequest
         {
             username = username,
             password = password,
+            email = email
         };
         
         string json = JsonConvert.SerializeObject(payload);
@@ -41,16 +44,19 @@ public class Api_SignUp : MonoBehaviour
 
         yield return webRequest.SendWebRequest();
         
-        string jsonText = webRequest.downloadHandler.text;
-        var result = JsonConvert.DeserializeObject<SignUpResponse>(jsonText);
-        
         if (webRequest.result == UnityWebRequest.Result.Success)
         {
+            string jsonText = webRequest.downloadHandler.text;
+            var result = JsonConvert.DeserializeObject<SignUpResponse>(jsonText);
+            
             onComplete?.Invoke(result.status, result.message);
             UserInfo.Instance.SetUserInfo(result.username, result.token);
         }
         else
         {
+            string jsonText = webRequest.downloadHandler.text;
+            var result = JsonConvert.DeserializeObject<SignUpResponse>(jsonText);
+            
             onComplete?.Invoke(false, $"Request Error: {result.message}");
         }
         

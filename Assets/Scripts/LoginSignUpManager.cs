@@ -15,14 +15,19 @@ public class LoginSignUpManager : MonoBehaviour
     public GameObject errorObj;
     public TextMeshProUGUI errorText;
     
+    public GameObject noticeObj;
+    public TextMeshProUGUI noticeText;
+    
     public TMP_InputField idInputField;
     public TMP_InputField passwordInputField;
     
     public TMP_InputField registerIdInputField;
+    public TMP_InputField emailInputField;
+    public TMP_InputField emailVerifyCodeInputField;
     public TMP_InputField registerPasswordInputField;
     public TMP_InputField registerCheckPasswordInputField;
 
-    private string _passwordError = "Passwords must be same";
+    private bool _isEmailVerified = false;
 
 
     void Awake()
@@ -49,10 +54,27 @@ public class LoginSignUpManager : MonoBehaviour
         ResetRegisterText();
     }
 
+    public void OnGoToSingUpButtonClick()
+    {
+        ResetLoginText();
+        GoToRegisterPanel();
+    }
+
+    public void OnReturnLoginButtonClick()
+    {
+        ResetRegisterText();
+        GoToLoginPanel();
+    }
+    
     public void OnLoginButtonClick()
     {
         string username = idInputField.text;
         string password = passwordInputField.text;
+
+        if (username == "" || password == "")
+        {
+            
+        }
 
         StartCoroutine(Api_Login.Send(username, password, (status, message) =>
             {
@@ -65,7 +87,7 @@ public class LoginSignUpManager : MonoBehaviour
                 }
                 else
                 {
-                    // StartCoroutine(Error(message));
+                    StartCoroutine(Error(message));
                     Debug.LogWarning($"Login failed (status = {status}): {message}");
                 }
 
@@ -75,45 +97,97 @@ public class LoginSignUpManager : MonoBehaviour
         ));
     }
 
-    public void OnGoToSingUpButtonClick()
+    public void OnSendEmailVerificationButtonClick()
     {
-        ResetLoginText();
-        GoToRegisterPanel();
+        string email = emailInputField.text;
+
+        if (IsNull(email))
+        {
+            StartCoroutine(Error("email " + NotificationTexts.TextNullError));
+            return;
+        }
+
+        StartCoroutine(Api_SendEmailVerification.Send(email, (status, message) =>
+        {
+            if (status)
+            {
+                StartCoroutine(Notice(message));
+            }
+            else
+            {
+                StartCoroutine(Error(message));
+            }
+        }));
+
     }
 
-    public void OnReturnLoginButtonClick()
+    public void OnVerifyEmailButtonClick()
     {
-        ResetRegisterText();
-        GoToLoginPanel();
+        string email = emailInputField.text;
+        string verifyCode = emailVerifyCodeInputField.text;
+        
+        if (IsNull(email) || IsNull(verifyCode))
+        {
+            StartCoroutine(Error("email or verifyCode " + NotificationTexts.TextNullError));
+            return;
+        }
+
+        StartCoroutine(Api_VerifyEmail.Send(email, verifyCode, (status, message) =>
+        {
+            if (status)
+            {
+                _isEmailVerified = true;
+                StartCoroutine(Notice(message));
+            }
+            else
+            {
+                _isEmailVerified = false;
+                StartCoroutine(Error(message));
+            }
+        }));
     }
+
 
     public void OnSignUpButtonClick()
     {
         string username = registerIdInputField.text;
+        string email = emailInputField.text;
         string password = registerPasswordInputField.text;
         string checkPassword = registerCheckPasswordInputField.text;
+
+        if (IsNull(email) || IsNull(username) || IsNull(password) || IsNull(checkPassword))
+        {
+            StartCoroutine(Error("All " + NotificationTexts.TextNullError));
+            return;
+        }
+
+        if (!_isEmailVerified)
+        {
+            StartCoroutine(Error(NotificationTexts.EmailVerifyError));
+            return;
+        }
         
         if (password != checkPassword)
         {
-            StartCoroutine(Error(_passwordError));
+            StartCoroutine(Error(NotificationTexts.PasswordError));
             return;
         }
         
 
-        StartCoroutine(Api_SignUp.Send(username, password, (status, message) =>
+        StartCoroutine(Api_SignUp.Send(username, password, email, (status, message) =>
         {
             Debug.Log(status);
 
             if (status)
             {
                 Debug.Log("SignUp successful");
-                // StartCoroutine(SignUpComplete());
+                StartCoroutine(Notice(message));
                 //튜토리얼 씬으로 이동
 
             }
             else
             {
-                // StartCoroutine(Error(message));
+                StartCoroutine(Error(message));
                 Debug.LogWarning($"Login failed (status = {status}): {message}");
             }
             
@@ -132,13 +206,20 @@ public class LoginSignUpManager : MonoBehaviour
          ResetErrorText();
     }
     
-    public IEnumerator SignUpComplete()
+    public IEnumerator Notice(string notice)
     {
-        //환영메세지? 키기
+        noticeText.text = notice;
+        noticeObj.SetActive(true);
         
         yield return new WaitForSeconds(1f);
          
-        //끄기
+        noticeObj.SetActive(false);
+        ResetNoticeText();
+    }
+
+    public bool IsNull(string text)
+    {
+        return string.IsNullOrEmpty(text);
     }
     
     #region ResetText
@@ -151,6 +232,8 @@ public class LoginSignUpManager : MonoBehaviour
     private void ResetRegisterText()
     {
         registerIdInputField.text = "";
+        emailInputField.text = "";
+        emailVerifyCodeInputField.text = "";
         registerPasswordInputField.text = "";
         registerCheckPasswordInputField.text = "";
     }
@@ -158,6 +241,11 @@ public class LoginSignUpManager : MonoBehaviour
     private void ResetErrorText()
     {
         errorText.text = "";
+    }
+    
+    private void ResetNoticeText()
+    {
+        noticeText.text = "";
     }
     
     #endregion
