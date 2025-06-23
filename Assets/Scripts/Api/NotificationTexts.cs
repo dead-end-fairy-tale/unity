@@ -6,4 +6,5 @@ public static class NotificationTexts
     public const string PasswordError = "Passwords must be same";
     public const string EmailVerifyError = "You must verify your email address before signing up";
     public const string TextNullError = "Text cannot be null";
+    public const string verifiedEmailChanged = "written Email has been changed after verify. Please verify your new email address";
 }
