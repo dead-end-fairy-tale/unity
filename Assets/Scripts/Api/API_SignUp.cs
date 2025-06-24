@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class Api_SignUp : MonoBehaviour
+public class API_SignUp : MonoBehaviour
 {
     public class SignUpRequest
     {
@@ -49,11 +49,17 @@ public class Api_SignUp : MonoBehaviour
             string jsonText = webRequest.downloadHandler.text;
             var result = JsonConvert.DeserializeObject<SignUpResponse>(jsonText);
             
-            onComplete?.Invoke(result.status, result.message);
+            onComplete?.Invoke(true, result.message);
             UserInfo.Instance.SetUserInfo(result.username, result.token);
         }
         else
         {
+            
+            if (webRequest.responseCode == 401)
+            {
+                
+            }
+
             string jsonText = webRequest.downloadHandler.text;
             var result = JsonConvert.DeserializeObject<SignUpResponse>(jsonText);
             

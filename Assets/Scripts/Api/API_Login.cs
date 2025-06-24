@@ -4,32 +4,34 @@ using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class Api_VerifyEmail : MonoBehaviour
+public class API_Login : MonoBehaviour
 {
-    public class VerifyEmailRequest
+    public class LoginRequest
     {
-        public string email;
-        public string code;
+        public string username;
+        public string password;
     }
 
-    public class VerifyEmailResponse
+    public class LoginResponse
     {
         public bool status;
+        public string username;
+        public string token;
         public string message;
     }
-    
-    public static IEnumerator Send(string email, string code,Action<bool, string> onComplete)
+
+    public static IEnumerator Send(string username, string password, Action<bool, string> onComplete)
     {
-        var payload = new VerifyEmailRequest
+        var payload = new LoginRequest
         {
-            email = email,
-            code = code
+            username = username,
+            password = password,
         };
         
         string json = JsonConvert.SerializeObject(payload);
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
         
-        using var webRequest = new UnityWebRequest($"{Constants.Url}/api/auth/verify-email", "POST")
+        using var webRequest = new UnityWebRequest($"{Constants.Url}/api/auth/login", "POST")
         {
             uploadHandler   = new UploadHandlerRaw(bodyRaw),
             downloadHandler = new DownloadHandlerBuffer()
@@ -42,17 +44,19 @@ public class Api_VerifyEmail : MonoBehaviour
         if (webRequest.result == UnityWebRequest.Result.Success)
         {
             string jsonText = webRequest.downloadHandler.text;
-            var result = JsonConvert.DeserializeObject<VerifyEmailResponse>(jsonText);
+            var result = JsonConvert.DeserializeObject<LoginResponse>(jsonText);
             
             onComplete?.Invoke(result.status, result.message);
+            UserInfo.Instance.SetUserInfo(result.username, result.token);
         }
         else
         {
             string jsonText = webRequest.downloadHandler.text;
-            var result = JsonConvert.DeserializeObject<VerifyEmailResponse>(jsonText);
+            var result = JsonConvert.DeserializeObject<LoginResponse>(jsonText);
             
             onComplete?.Invoke(false, $"Request Error: {result.message}");
         }
         
     }
+    
 }

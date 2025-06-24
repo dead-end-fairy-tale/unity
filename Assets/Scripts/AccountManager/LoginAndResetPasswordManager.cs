@@ -32,7 +32,7 @@ public class LoginAndResetPasswordManager : MonoBehaviour, IAccountManager
             return;
         }
 
-        StartCoroutine(Api_SendEmailVerification.Send(email, (status, message) =>
+        StartCoroutine(API_SendEmailVerification.Send(email, (status, message) =>
         {
             if (status)
             {
@@ -59,7 +59,7 @@ public class LoginAndResetPasswordManager : MonoBehaviour, IAccountManager
             return;
         }
 
-        StartCoroutine(Api_VerifyEmail.Send(email, verifyCode, (status, message) =>
+        StartCoroutine(API_VerifyEmail.Send(email, verifyCode, (status, message) =>
         {
             if (status)
             {
@@ -92,7 +92,7 @@ public class LoginAndResetPasswordManager : MonoBehaviour, IAccountManager
             return;
         }
 
-        StartCoroutine(Api_ResetPassword.Send(email, (status, message) =>
+        StartCoroutine(API_ResetPassword.Send(email, (status, message) =>
         {
             if (status)
             {
@@ -116,7 +116,7 @@ public class LoginAndResetPasswordManager : MonoBehaviour, IAccountManager
             return;
         }
 
-        StartCoroutine(Api_Login.Send(username, password, (status, message) =>
+        StartCoroutine(API_Login.Send(username, password, (status, message) =>
             {
                 Debug.Log(status);
 
