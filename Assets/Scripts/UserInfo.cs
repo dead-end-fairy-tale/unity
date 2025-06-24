@@ -2,22 +2,38 @@ using UnityEngine;
 
 public class UserInfo : MonoBehaviour
 {
-
-    public static UserInfo Instance { get; private set; }
-
+    
     [SerializeField] public string username;
     [SerializeField] public string accessToken;
+    
+    private static UserInfo instance;
+    public static UserInfo Instance {get{ if (instance == null) SetupInstance(); return instance;}}
 
-    void Awake()
+    private void Awake()
     {
-        if (Instance != null)
+        if (instance == null)
         {
-            Destroy(Instance.gameObject);
-            Instance = null;
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-        Instance = this;
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
-        DontDestroyOnLoad(gameObject);
+    private static void SetupInstance()
+    {
+        instance = FindAnyObjectByType<UserInfo>();
+
+        if (instance == null)
+        {
+            GameObject obj = new GameObject();
+            obj.name = "UserInfo";
+            instance = obj.AddComponent<UserInfo>();
+            DontDestroyOnLoad(obj);
+
+        }
     }
 
     public void SetUserInfo(string givenUsername, string token)
