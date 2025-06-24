@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using Dungeon;
+using Unity.AI.Navigation;
 
 public class DungeonGenerator : MonoBehaviour
 {
@@ -25,7 +26,14 @@ public class DungeonGenerator : MonoBehaviour
     [Header("보스방 설정")]
     public GameObject BossRoomPrefab;
     
-    public event Action OnGenerationComplete;
+    public event Action OnCompleted;
+    
+    private NavMeshSurface navMeshSurface;
+
+    private void Awake()
+    {
+        navMeshSurface = GetComponent<NavMeshSurface>();
+    }
 
     private void Start()
     {
@@ -43,14 +51,24 @@ public class DungeonGenerator : MonoBehaviour
             mazeGen.Carve(StartCoord);
 
             var bossCoord = BossRoomLocator.FindFarthest(boardMgr.Board, StartCoord, Size);
-
             var placer = new RoomPlacer(boardMgr.Board, Size, Offset, Rules, BossRoomPrefab, transform);
             placer.PlaceAll(bossCoord);
-            OnGenerationComplete?.Invoke();
+
+            if (navMeshSurface != null)
+            {
+                navMeshSurface.BuildNavMesh();
+                Debug.Log("[DungeonGenerator] NavMesh 빌드 완료");
+            }
+            else
+            {
+                Debug.LogWarning("[DungeonGenerator] NavMeshSurface가 할당되지 않아 런타임 베이크를 건너뜁니다.");
+            }
+
+            OnCompleted?.Invoke();
         }
         catch (Exception ex)
         {
-            Debug.LogError($"[DungeonGenerator] 오류: {ex.GetType().Name} – {ex.Message}");
+            Debug.LogError($"[DungeonGenerator] 오류 발생: {ex.GetType().Name} – {ex.Message}");
         }
     }
 }
