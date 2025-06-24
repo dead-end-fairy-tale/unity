@@ -2,12 +2,19 @@ using UnityEngine;
 
 public class UserInfo : MonoBehaviour
 {
-    
-    [SerializeField] public string username;
-    [SerializeField] public string accessToken;
-    
+
+    public string username { get; private set; }
+    public string accessToken { get; private set; }
+
     private static UserInfo instance;
-    public static UserInfo Instance {get{ if (instance == null) SetupInstance(); return instance;}}
+    public static UserInfo Instance
+    {
+        get
+        {
+            if (instance == null) SetupInstance();
+            return instance;
+        }
+    }
 
     private void Awake()
     {
@@ -40,7 +47,7 @@ public class UserInfo : MonoBehaviour
     {
         username = givenUsername;
         accessToken = token;
-        
+
         Debug.Log($"Set User Info by {username}");
     }
 }

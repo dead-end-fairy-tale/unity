@@ -4,9 +4,9 @@ using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class Api_ResetPassword : MonoBehaviour
+public class API_SendEmailVerification : MonoBehaviour
 {
-    public class ResetPasswordResponse
+    public class SendEmailVerificationResponse
     {
         public bool status;
         public string message;
@@ -14,7 +14,7 @@ public class Api_ResetPassword : MonoBehaviour
     
     public static IEnumerator Send(string email, Action<bool, string> onComplete)
     {
-        using var webRequest = new UnityWebRequest($"{Constants.Url}/api/auth/reset-password?email={email}", "PATCH")
+        using var webRequest = new UnityWebRequest($"{Constants.Url}/api/auth/send-email-verification?email={email}", "POST")
         {
             downloadHandler = new DownloadHandlerBuffer()
         };
@@ -26,18 +26,17 @@ public class Api_ResetPassword : MonoBehaviour
         if (webRequest.result == UnityWebRequest.Result.Success)
         {
             string jsonText = webRequest.downloadHandler.text;
-            var result = JsonConvert.DeserializeObject<ResetPasswordResponse>(jsonText);
+            var result = JsonConvert.DeserializeObject<SendEmailVerificationResponse>(jsonText);
             
             onComplete?.Invoke(result.status, result.message);
         }
         else
         {
             string jsonText = webRequest.downloadHandler.text;
-            var result = JsonConvert.DeserializeObject<ResetPasswordResponse>(jsonText);
+            var result = JsonConvert.DeserializeObject<SendEmailVerificationResponse>(jsonText);
             
             onComplete?.Invoke(false, $"Request Error: {result.message}");
         }
         
     }
-
 }
