@@ -45,6 +45,7 @@ public class AccountManager : MonoBehaviour
         {
             if (status)
             {
+                //시작화면 or 로그인 씬으로 이동
                 AlertSystem.Instance.Notice(message);
             }
             else
