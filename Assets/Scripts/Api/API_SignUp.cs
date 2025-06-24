@@ -49,17 +49,11 @@ public class API_SignUp : MonoBehaviour
             string jsonText = webRequest.downloadHandler.text;
             var result = JsonConvert.DeserializeObject<SignUpResponse>(jsonText);
             
-            onComplete?.Invoke(true, result.message);
+            onComplete?.Invoke(result.status, result.message);
             UserInfo.Instance.SetUserInfo(result.username, result.token);
         }
         else
         {
-            
-            if (webRequest.responseCode == 401)
-            {
-                
-            }
-
             string jsonText = webRequest.downloadHandler.text;
             var result = JsonConvert.DeserializeObject<SignUpResponse>(jsonText);
             
