@@ -16,7 +16,7 @@ public class LoginAndResetPasswordManager : MonoBehaviour, IAccountManager
         ResetLoginText();
         ResetResetPasswordEmailText();
     }
-    
+   
 
     public void OnFindPasswordButtonClick()
     {
@@ -46,7 +46,7 @@ public class LoginAndResetPasswordManager : MonoBehaviour, IAccountManager
             return;
         }
 
-        StartCoroutine(Api_Login.Send(username, password, (status, message) =>
+        StartCoroutine(API_Login.Send(username, password, (status, message) =>
             {
                 Debug.Log(status);
 
