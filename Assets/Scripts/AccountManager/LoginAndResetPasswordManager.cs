@@ -76,7 +76,6 @@ public class LoginAndResetPasswordManager : MonoBehaviour, IAccountManager
     public void ResetResetPasswordEmailText()
     {
         resetPasswordEmailInputField.text = "";
-        resetPasswordVerifyCodeInputField.text = "";
     }
     
     public bool IsNull(string text)
