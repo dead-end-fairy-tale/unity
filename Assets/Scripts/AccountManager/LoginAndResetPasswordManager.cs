@@ -22,7 +22,7 @@ public class LoginAndResetPasswordManager : MonoBehaviour, IAccountManager
     {
         string email = resetPasswordEmailInputField.text;
         
-        StartCoroutine(Api_ResetPassword.Send(email, (status, message) =>
+        StartCoroutine(API_ResetPassword.Send(email, (status, message) =>
         {
             if (status)
             {
