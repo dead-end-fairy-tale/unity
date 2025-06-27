@@ -26,7 +26,7 @@ public class SignUpManager : MonoBehaviour, IAccountManager
             return;
         }
 
-        StartCoroutine(Api_SendEmailVerification.Send(email, (status, message) =>
+        StartCoroutine(API_SendEmailVerification.Send(email, (status, message) =>
         {
             if (status)
             {
@@ -51,7 +51,7 @@ public class SignUpManager : MonoBehaviour, IAccountManager
             return;
         }
 
-        StartCoroutine(Api_VerifyEmail.Send(email, verifyCode, (status, message) =>
+        StartCoroutine(API_VerifyEmail.Send(email, verifyCode, (status, message) =>
         {
             if (status)
             {
@@ -93,7 +93,7 @@ public class SignUpManager : MonoBehaviour, IAccountManager
         }
 
 
-        StartCoroutine(Api_SignUp.Send(username, password, email, (status, message) =>
+        StartCoroutine(API_SignUp.Send(username, password, email, (status, message) =>
         {
             Debug.Log(status);
 
