@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class AccountManager : MonoBehaviour
+public class Caller : MonoBehaviour
 {
-    private static AccountManager instance;
-    public static AccountManager Instance
+    private static Caller instance;
+    public static Caller Instance
     {
         get
         {
@@ -27,19 +27,16 @@ public class AccountManager : MonoBehaviour
 
     private static void SetupInstance()
     {
-        instance = FindAnyObjectByType<AccountManager>();
+        instance = FindAnyObjectByType<Caller>();
 
         if (instance == null)
         {
             GameObject obj = new GameObject();
-            obj.name = "AccountManager";
-            instance = obj.AddComponent<AccountManager>();
+            obj.name = "Caller";
+            instance = obj.AddComponent<Caller>();
             DontDestroyOnLoad(obj);
         }
     }
     
-    public void OnLogoutButtonClick()
-    {
-        StartCoroutine(API_Logout.Send());
-    }
+    
 }
