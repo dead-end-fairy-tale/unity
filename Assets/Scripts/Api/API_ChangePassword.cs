@@ -56,14 +56,14 @@ public class API_ChangePassword : MonoBehaviour
                     var resultAgain = JsonConvert.DeserializeObject<API_Logout.LogoutResponse>(jsonTextAgain);
                     
                     Debug.Log(resultAgain.message);
-                    AlertSystem.Instance.Error(NotificationTexts.UnknownError);
+                    AlertSystem.Instance.Notice(NotificationTexts.UnknownError);
                 }
             }
             
             string jsonText = webRequest.downloadHandler.text;
             var result = JsonConvert.DeserializeObject<API_Logout.LogoutResponse>(jsonText);
             
-            AlertSystem.Instance.Error(result.message);
+            AlertSystem.Instance.Notice(result.message);
         }
 
 

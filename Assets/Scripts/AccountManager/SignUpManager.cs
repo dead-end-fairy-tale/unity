@@ -22,7 +22,7 @@ public class SignUpManager : MonoBehaviour, IAccountManager
 
         if (IsNull(email))
         {
-            AlertSystem.Instance.Error("email " + NotificationTexts.TextNullError);
+            AlertSystem.Instance.Notice("email " + NotificationTexts.TextNullError);
             return;
         }
 
@@ -34,7 +34,7 @@ public class SignUpManager : MonoBehaviour, IAccountManager
             }
             else
             {
-                AlertSystem.Instance.Error(message);
+                AlertSystem.Instance.Notice(message);
             }
         }));
 
@@ -47,7 +47,7 @@ public class SignUpManager : MonoBehaviour, IAccountManager
 
         if (IsNull(email) || IsNull(verifyCode))
         {
-            AlertSystem.Instance.Error("email or verifyCode " + NotificationTexts.TextNullError);
+            AlertSystem.Instance.Notice("email or verifyCode " + NotificationTexts.TextNullError);
             return;
         }
 
@@ -61,7 +61,7 @@ public class SignUpManager : MonoBehaviour, IAccountManager
             else
             {
                 _isEmailVerified = false;
-                AlertSystem.Instance.Error(message);
+                AlertSystem.Instance.Notice(message);
             }
         }));
     }
@@ -76,19 +76,19 @@ public class SignUpManager : MonoBehaviour, IAccountManager
 
         if (IsNull(email) || IsNull(username) || IsNull(password) || IsNull(checkPassword))
         {
-            AlertSystem.Instance.Error("All " + NotificationTexts.TextNullError);
+            AlertSystem.Instance.Notice("All " + NotificationTexts.TextNullError);
             return;
         }
 
         if (!_isEmailVerified)
         {
-            AlertSystem.Instance.Error(NotificationTexts.EmailVerifyError);
+            AlertSystem.Instance.Notice(NotificationTexts.EmailVerifyError);
             return;
         }
 
         if (password != checkPassword)
         {
-            AlertSystem.Instance.Error(NotificationTexts.PasswordError);
+            AlertSystem.Instance.Notice(NotificationTexts.PasswordError);
             return;
         }
 
@@ -106,7 +106,7 @@ public class SignUpManager : MonoBehaviour, IAccountManager
             }
             else
             {
-                AlertSystem.Instance.Error(message);
+                AlertSystem.Instance.Notice(message);
                 Debug.LogWarning($"Login failed (status = {status}): {message}");
             }
 
