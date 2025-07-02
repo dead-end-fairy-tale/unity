@@ -29,7 +29,6 @@ public class API_Logout : MonoBehaviour
         if (webRequest.result == UnityWebRequest.Result.Success)
         {
             UserInfo.Instance.SetUserInfo(null, null);
-            //로그인 화면씬으로 이동
         }
         else
         {
@@ -39,7 +38,6 @@ public class API_Logout : MonoBehaviour
             Debug.Log(result.message);
             
             UserInfo.Instance.SetUserInfo(null, null);
-            //로그인 화면 씬으로 이동
         }
 
     }
