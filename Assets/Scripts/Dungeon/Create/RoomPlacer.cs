@@ -31,7 +31,7 @@ namespace Dungeon
                 if (!cell.Visited) continue;
 
                 bool isBoss = (x == bossCoord.x && y == bossCoord.y);
-                var pos3D   = new Vector3(x * _offset.x, 0f, y * _offset.y);
+                var pos3D = new Vector3(x * _offset.x, 0f, y * _offset.y);
                 GameObject instance;
 
                 if (isBoss)

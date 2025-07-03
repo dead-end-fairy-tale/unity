@@ -39,8 +39,6 @@ public class InputReceiver : MonoBehaviour
             MoveToTap(touchPos);
             tapPressed = false;
         }
-        
-        Debug.Log($"Position: {position}, Direction: {dir}");
     }
 
     private void MoveToTap(Vector2 screenPos)

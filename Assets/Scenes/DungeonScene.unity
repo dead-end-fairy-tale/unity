@@ -280,10 +280,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 889158564}
-  - component: {fileID: 889158565}
   - component: {fileID: 889158566}
+  - component: {fileID: 889158565}
   m_Layer: 0
-  m_Name: DungeonGenerator
+  m_Name: DungeonManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -321,13 +321,12 @@ MonoBehaviour:
   CoverageRatio: 0.5
   TargetRoomCount: 0
   Rules:
-  - RoomPrefab: {fileID: 1393446454315142561, guid: e2c42b414a2574a41808cb11dc5ac496, type: 3}
+  - RoomPrefab: {fileID: 1393446454315142561, guid: b5c0bb3a9b1cf154994d3fa2f3bbb9a8, type: 3}
     MinPosition: {x: 0, y: 0}
     MaxPosition: {x: 3, y: 5}
     Obligatory: 0
-  Offset: {x: 6, y: 6}
-  BossRoomPrefab: {fileID: 1393446454315142561, guid: 49712093301cda84c9e97fc08a8ae1dc, type: 3}
-  navMeshSurface: {fileID: 0}
+  Offset: {x: 18, y: 10}
+  BossRoomPrefab: {fileID: 1393446454315142561, guid: 9a4e194a804a3174583732764d7bcb64, type: 3}
 --- !u!114 &889158566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,7 +355,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.016666668
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
@@ -451,6 +450,7 @@ GameObject:
   - component: {fileID: 1191837466}
   - component: {fileID: 1191837465}
   - component: {fileID: 1191837468}
+  - component: {fileID: 1191837469}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -525,13 +525,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1191837464}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.46991682, y: 0.0074320473, z: -0.004450932, w: -0.8826682}
-  m_LocalPosition: {x: 2.6584792, y: 25.668037, z: -9.600948}
+  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 0, y: 10, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
 --- !u!114 &1191837468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -576,6 +576,23 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1191837469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191837464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb51bae8d62449679ed8a6cff2a3ad4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTag: Player
+  roomSize: {x: 18, y: 10}
+  cameraOffset: {x: 0, y: 10, z: -5}
+  moveSmoothTime: 0.3
+  switchThresholdOffset: {x: 0.2, y: 0.2}
 --- !u!1 &1667713543
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,6 +647,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1191837467}
   - {fileID: 14498347}
-  - {fileID: 889158564}
   - {fileID: 1667713544}
   - {fileID: 1132395595}
+  - {fileID: 889158564}
