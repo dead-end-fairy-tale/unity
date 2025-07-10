@@ -1431,19 +1431,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 868252249}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: fbc1a03589427c0408b289f121f030cd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.946
+      value: 2.1025963
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fbc1a03589427c0408b289f121f030cd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fbc1a03589427c0408b289f121f030cd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.049
+      value: -0.07159233
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fbc1a03589427c0408b289f121f030cd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1451,15 +1451,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fbc1a03589427c0408b289f121f030cd, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fbc1a03589427c0408b289f121f030cd, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fbc1a03589427c0408b289f121f030cd, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fbc1a03589427c0408b289f121f030cd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1486,6 +1486,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbc1a03589427c0408b289f121f030cd, type: 3}
+--- !u!4 &839446802 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fbc1a03589427c0408b289f121f030cd, type: 3}
+  m_PrefabInstance: {fileID: 839446801}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &863855053 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0a4c02b5e9eb32a40a0dbd6afc3cb1d1, type: 3}
@@ -2315,6 +2320,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3cda70b2063fe2a45a671ef1e14186a9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 232608769}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3cda70b2063fe2a45a671ef1e14186a9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 839446802}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cda70b2063fe2a45a671ef1e14186a9, type: 3}
 --- !u!1001 &1225575237
@@ -3989,4 +3997,3 @@ SceneRoots:
   - {fileID: 1454824510}
   - {fileID: 590086487}
   - {fileID: 2088805641}
-  - {fileID: 839446801}
