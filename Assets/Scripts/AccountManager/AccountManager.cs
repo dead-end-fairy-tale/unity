@@ -41,5 +41,6 @@ public class AccountManager : MonoBehaviour
     public void OnLogoutButtonClick()
     {
         StartCoroutine(API_Logout.Send());
+        //로그인 화면씬으로 이동
     }
 }

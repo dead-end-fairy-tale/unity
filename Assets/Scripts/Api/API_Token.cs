@@ -43,7 +43,7 @@ public class API_Token : MonoBehaviour
             Debug.Log(result.message);
             
             Caller.Instance.StartCoroutine(API_Logout.Send());
-            AlertSystem.Instance.Error(NotificationTexts.ResetTokenError);
+            AlertSystem.Instance.Notice(NotificationTexts.ResetTokenError);
             //나중에 필요시 AlertSystem Error메세지 띄운 후 확인 버튼 눌렀을때 로그아웃 시키기
         }
     }

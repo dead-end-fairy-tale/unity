@@ -31,12 +31,12 @@ public class LoginAndResetPasswordManager : MonoBehaviour, IAccountManager
             }
             else
             {
-                AlertSystem.Instance.Error(message);
+                AlertSystem.Instance.Notice(message);
             }
         }));
     }
     
-    public void OnFindPasswordButtonClick()
+    public void OnResetPasswordButtonClick()
     {
         string email = resetPasswordEmailInputField.text;
         
@@ -48,7 +48,7 @@ public class LoginAndResetPasswordManager : MonoBehaviour, IAccountManager
             }
             else
             {
-                AlertSystem.Instance.Error(message);
+                AlertSystem.Instance.Notice(message);
             }
         }));
     }
@@ -60,7 +60,7 @@ public class LoginAndResetPasswordManager : MonoBehaviour, IAccountManager
 
         if (IsNull(username) || IsNull(password))
         {
-            AlertSystem.Instance.Error("All " + NotificationTexts.TextNullError);
+            AlertSystem.Instance.Notice("All " + NotificationTexts.TextNullError);
             return;
         }
 
@@ -75,7 +75,7 @@ public class LoginAndResetPasswordManager : MonoBehaviour, IAccountManager
                 }
                 else
                 {
-                    AlertSystem.Instance.Error(message);
+                    AlertSystem.Instance.Notice(message);
                     Debug.LogWarning($"Login failed (status = {status}): {message}");
                 }
 
