@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c4982146b164ca448b816c0d122e0711
+guid: 672118663bd6d35409c6c09d7f728b29
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,35 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ui_wood_0
+      name: coin_0
       rect:
         serializedVersion: 2
-        x: 214
-        y: 332
-        width: 559
-        height: 364
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 125, z: 0, w: 117}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ab189aef28313f54ea69d6af5722b7b0
-      internalID: 274051955
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_wood_1
-      rect:
-        serializedVersion: 2
-        x: 214
-        y: 462
-        width: 556
-        height: 110
+        x: 183
+        y: 58
+        width: 1141
+        height: 918
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,30 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1ef6389fa225284e9c7928dc1ada149
-      internalID: -64548022
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_wood_2
-      rect:
-        serializedVersion: 2
-        x: 418
-        y: 598
-        width: 96
-        height: 90
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1170cac0255b4b94ba8c1d6429f4731a
-      internalID: -789269158
+      spriteID: b8b65892a16b9884099f848e155ddc14
+      internalID: 1552583516
       vertices: []
       indices: 
       edges: []
@@ -166,7 +122,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: b58259b765f4b104e8a50a8a68a93850
     internalID: 0
     vertices: []
     indices: 
@@ -176,9 +132,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ui_wood_0: 274051955
-      ui_wood_1: -64548022
-      ui_wood_2: -789269158
+      coin_0: 1552583516
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

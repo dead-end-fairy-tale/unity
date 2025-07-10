@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c4982146b164ca448b816c0d122e0711
+guid: a179a3e0761eae7498ee626cfcd8faca
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,35 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ui_wood_0
+      name: woo_0
       rect:
         serializedVersion: 2
-        x: 214
-        y: 332
-        width: 559
-        height: 364
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 125, z: 0, w: 117}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ab189aef28313f54ea69d6af5722b7b0
-      internalID: 274051955
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_wood_1
-      rect:
-        serializedVersion: 2
-        x: 214
-        y: 462
-        width: 556
-        height: 110
+        x: 357
+        y: 188
+        width: 989
+        height: 661
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,20 +112,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1ef6389fa225284e9c7928dc1ada149
-      internalID: -64548022
+      spriteID: 535e207c6fa2fbd408613ad0fddbd1fc
+      internalID: -1974816512
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_wood_2
+      name: woo_1
       rect:
         serializedVersion: 2
-        x: 418
-        y: 598
-        width: 96
-        height: 90
+        x: 153
+        y: 167
+        width: 907
+        height: 697
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,8 +134,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1170cac0255b4b94ba8c1d6429f4731a
-      internalID: -789269158
+      spriteID: c609b4d1c8643c749ab4a68d23ed6421
+      internalID: 635011447
       vertices: []
       indices: 
       edges: []
@@ -166,7 +144,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 8d8ddbbb4e775034fba68e061901c380
     internalID: 0
     vertices: []
     indices: 
@@ -176,9 +154,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ui_wood_0: 274051955
-      ui_wood_1: -64548022
-      ui_wood_2: -789269158
+      woo_0: -1974816512
+      woo_1: 635011447
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
