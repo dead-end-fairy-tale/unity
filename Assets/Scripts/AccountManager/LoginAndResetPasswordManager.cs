@@ -11,14 +11,32 @@ public class LoginAndResetPasswordManager : MonoBehaviour, IAccountManager
     [Header("Reset Password")]
     public TMP_InputField resetPasswordEmailInputField;
 
+    [Header("Find ID")]
+    public TMP_InputField findIDEmailInputField;
+    
     private void Awake()
-    {
-        ResetLoginText();
-        ResetResetPasswordEmailText();
+    { 
+        ResetLoginTextAndAll();
     }
    
+    public void OnFindIDButtonClick()
+    {
+        string email = findIDEmailInputField.text;
 
-    public void OnFindPasswordButtonClick()
+        StartCoroutine(API_FindID.Send(email, (status, message) =>
+        {
+            if (status)
+            {
+                AlertSystem.Instance.Notice(message);
+            }
+            else
+            {
+                AlertSystem.Instance.Notice(message);
+            }
+        }));
+    }
+    
+    public void OnResetPasswordButtonClick()
     {
         string email = resetPasswordEmailInputField.text;
         
@@ -30,7 +48,7 @@ public class LoginAndResetPasswordManager : MonoBehaviour, IAccountManager
             }
             else
             {
-                AlertSystem.Instance.Error(message);
+                AlertSystem.Instance.Notice(message);
             }
         }));
     }
@@ -42,7 +60,7 @@ public class LoginAndResetPasswordManager : MonoBehaviour, IAccountManager
 
         if (IsNull(username) || IsNull(password))
         {
-            AlertSystem.Instance.Error("All " + NotificationTexts.TextNullError);
+            AlertSystem.Instance.Notice("All " + NotificationTexts.TextNullError);
             return;
         }
 
@@ -57,7 +75,7 @@ public class LoginAndResetPasswordManager : MonoBehaviour, IAccountManager
                 }
                 else
                 {
-                    AlertSystem.Instance.Error(message);
+                    AlertSystem.Instance.Notice(message);
                     Debug.LogWarning($"Login failed (status = {status}): {message}");
                 }
 
@@ -66,12 +84,22 @@ public class LoginAndResetPasswordManager : MonoBehaviour, IAccountManager
 
         ));
     }
-
-
+    
+    public void ResetLoginTextAndAll()
+    {
+        ResetLoginText();
+        ResetResetPasswordEmailText();
+        ResetFindIDText();
+    }
+    
     public void ResetLoginText()
     {
         idInputField.text = "";
         passwordInputField.text = "";
+    }
+    public void ResetFindIDText()
+    {
+        findIDEmailInputField.text = "";
     }
     public void ResetResetPasswordEmailText()
     {
