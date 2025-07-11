@@ -1,13 +1,9 @@
 using UnityEngine;
 
-public class UserInfo : MonoBehaviour
+public class AccountManager : MonoBehaviour
 {
-
-    public string username { get; private set; }
-    public string accessToken { get; private set; }
-
-    private static UserInfo instance;
-    public static UserInfo Instance
+    private static AccountManager instance;
+    public static AccountManager Instance
     {
         get
         {
@@ -31,23 +27,20 @@ public class UserInfo : MonoBehaviour
 
     private static void SetupInstance()
     {
-        instance = FindAnyObjectByType<UserInfo>();
+        instance = FindAnyObjectByType<AccountManager>();
 
         if (instance == null)
         {
             GameObject obj = new GameObject();
-            obj.name = "UserInfo";
-            instance = obj.AddComponent<UserInfo>();
+            obj.name = "AccountManager";
+            instance = obj.AddComponent<AccountManager>();
             DontDestroyOnLoad(obj);
-
         }
     }
-
-    public void SetUserInfo(string givenUsername, string token)
+    
+    public void OnLogoutButtonClick()
     {
-        username = givenUsername;
-        accessToken = token;
-
-        Debug.Log($"Set User Info by {username}");
+        StartCoroutine(API_Logout.Send());
+        //로그인 화면씬으로 이동
     }
 }

@@ -22,11 +22,11 @@ public class SignUpManager : MonoBehaviour, IAccountManager
 
         if (IsNull(email))
         {
-            AlertSystem.Instance.Error("email " + NotificationTexts.TextNullError);
+            AlertSystem.Instance.Notice("email " + NotificationTexts.TextNullError);
             return;
         }
 
-        StartCoroutine(Api_SendEmailVerification.Send(email, (status, message) =>
+        StartCoroutine(API_SendEmailVerification.Send(email, (status, message) =>
         {
             if (status)
             {
@@ -34,7 +34,7 @@ public class SignUpManager : MonoBehaviour, IAccountManager
             }
             else
             {
-                AlertSystem.Instance.Error(message);
+                AlertSystem.Instance.Notice(message);
             }
         }));
 
@@ -47,11 +47,11 @@ public class SignUpManager : MonoBehaviour, IAccountManager
 
         if (IsNull(email) || IsNull(verifyCode))
         {
-            AlertSystem.Instance.Error("email or verifyCode " + NotificationTexts.TextNullError);
+            AlertSystem.Instance.Notice("email or verifyCode " + NotificationTexts.TextNullError);
             return;
         }
 
-        StartCoroutine(Api_VerifyEmail.Send(email, verifyCode, (status, message) =>
+        StartCoroutine(API_VerifyEmail.Send(email, verifyCode, (status, message) =>
         {
             if (status)
             {
@@ -61,7 +61,7 @@ public class SignUpManager : MonoBehaviour, IAccountManager
             else
             {
                 _isEmailVerified = false;
-                AlertSystem.Instance.Error(message);
+                AlertSystem.Instance.Notice(message);
             }
         }));
     }
@@ -76,24 +76,24 @@ public class SignUpManager : MonoBehaviour, IAccountManager
 
         if (IsNull(email) || IsNull(username) || IsNull(password) || IsNull(checkPassword))
         {
-            AlertSystem.Instance.Error("All " + NotificationTexts.TextNullError);
+            AlertSystem.Instance.Notice("All " + NotificationTexts.TextNullError);
             return;
         }
 
         if (!_isEmailVerified)
         {
-            AlertSystem.Instance.Error(NotificationTexts.EmailVerifyError);
+            AlertSystem.Instance.Notice(NotificationTexts.EmailVerifyError);
             return;
         }
 
         if (password != checkPassword)
         {
-            AlertSystem.Instance.Error(NotificationTexts.PasswordError);
+            AlertSystem.Instance.Notice(NotificationTexts.PasswordError);
             return;
         }
 
 
-        StartCoroutine(Api_SignUp.Send(username, password, email, (status, message) =>
+        StartCoroutine(API_SignUp.Send(username, password, email, (status, message) =>
         {
             Debug.Log(status);
 
@@ -106,7 +106,7 @@ public class SignUpManager : MonoBehaviour, IAccountManager
             }
             else
             {
-                AlertSystem.Instance.Error(message);
+                AlertSystem.Instance.Notice(message);
                 Debug.LogWarning($"Login failed (status = {status}): {message}");
             }
 

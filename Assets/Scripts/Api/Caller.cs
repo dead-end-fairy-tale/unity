@@ -1,13 +1,9 @@
 using UnityEngine;
 
-public class UserInfo : MonoBehaviour
+public class Caller : MonoBehaviour
 {
-
-    public string username { get; private set; }
-    public string accessToken { get; private set; }
-
-    private static UserInfo instance;
-    public static UserInfo Instance
+    private static Caller instance;
+    public static Caller Instance
     {
         get
         {
@@ -31,23 +27,16 @@ public class UserInfo : MonoBehaviour
 
     private static void SetupInstance()
     {
-        instance = FindAnyObjectByType<UserInfo>();
+        instance = FindAnyObjectByType<Caller>();
 
         if (instance == null)
         {
             GameObject obj = new GameObject();
-            obj.name = "UserInfo";
-            instance = obj.AddComponent<UserInfo>();
+            obj.name = "Caller";
+            instance = obj.AddComponent<Caller>();
             DontDestroyOnLoad(obj);
-
         }
     }
-
-    public void SetUserInfo(string givenUsername, string token)
-    {
-        username = givenUsername;
-        accessToken = token;
-
-        Debug.Log($"Set User Info by {username}");
-    }
+    
+    
 }

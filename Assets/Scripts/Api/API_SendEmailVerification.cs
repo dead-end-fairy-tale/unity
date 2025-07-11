@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class Api_SendEmailVerification : MonoBehaviour
+public class API_SendEmailVerification : MonoBehaviour
 {
     public class SendEmailVerificationResponse
     {
