@@ -35,23 +35,12 @@ public class AccountManager : MonoBehaviour
             obj.name = "AccountManager";
             instance = obj.AddComponent<AccountManager>();
             DontDestroyOnLoad(obj);
-
         }
     }
     
     public void OnLogoutButtonClick()
     {
-        StartCoroutine(API_Logout.Send((status, message) =>
-        {
-            if (status)
-            {
-                //시작화면 or 로그인 씬으로 이동
-                AlertSystem.Instance.Notice(message);
-            }
-            else
-            {
-                AlertSystem.Instance.Error(message);
-            }
-        }));
+        StartCoroutine(API_Logout.Send());
+        //로그인 화면씬으로 이동
     }
 }

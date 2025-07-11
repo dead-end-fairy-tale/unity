@@ -8,7 +8,6 @@ public class Blackboard
     public void Set<T>(string key, T value)
     {
         _data[key] = value;
-        Debug.Log($"[Blackboard] Set: {key} = {value}");
     }
     // public void Set<T>(string key, T value) => _data[key] = value;
 

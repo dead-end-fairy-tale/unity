@@ -8,10 +8,6 @@ public class AlertSystem : MonoBehaviour
     public GameObject noticeObj;
     public TextMeshProUGUI noticeText;
     
-    [Header("Error")]
-    public GameObject errorObj;
-    public TextMeshProUGUI errorText;
-    
     
     private static AlertSystem instance;
     public static AlertSystem Instance {get{ if (instance == null) SetupInstance(); return instance;}}
@@ -28,7 +24,6 @@ public class AlertSystem : MonoBehaviour
         }
         
         noticeObj.SetActive(false);
-        errorObj.SetActive(false);
     }
 
     private static void SetupInstance()
@@ -42,12 +37,6 @@ public class AlertSystem : MonoBehaviour
             instance = obj.AddComponent<AlertSystem>();
         }
     }
-
-    public void Error(string error)
-    {
-        errorText.text = error;
-        errorObj.SetActive(true);
-    }
     
     public void Notice(string notice)
     {
@@ -55,21 +44,10 @@ public class AlertSystem : MonoBehaviour
         noticeObj.SetActive(true);
     }
     
-    public void OnErrorOKButtonClick()
-    {
-        errorObj.SetActive(false);
-        ResetErrorText();
-    }
-    
     public void OnNoticeOKButtonClick()
     {
         noticeObj.SetActive(false);
         ResetNoticeText();
-    }
-    
-    private void ResetErrorText()
-    {
-        errorText.text = "";
     }
     
     private void ResetNoticeText()

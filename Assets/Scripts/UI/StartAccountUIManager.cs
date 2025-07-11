@@ -11,6 +11,7 @@ public class StartAccountUIManager : MonoBehaviour
     public GameObject loginPanel;
     public GameObject registerPanel;
     public GameObject resetPasswordPanel;
+    public GameObject findIDPanel;
 
     void Awake()
     {
@@ -18,8 +19,9 @@ public class StartAccountUIManager : MonoBehaviour
         loginPanel.SetActive(false);
         registerPanel.SetActive(false);
         resetPasswordPanel.SetActive(false);
+        findIDPanel.SetActive(false);
     }
-    
+
     public void OnStartButtonClick()
     {
         GoToLoginPanel();
@@ -29,27 +31,33 @@ public class StartAccountUIManager : MonoBehaviour
     {
         GoToStartPanel();
         
-        loginAndResetPasswordManager.ResetLoginText();
+        loginAndResetPasswordManager.ResetLoginTextAndAll();
         signUpManager.ResetRegisterText();
     }
 
     public void OnGoToSingUpButtonClick()
     {
-        loginAndResetPasswordManager.ResetLoginText();
+        loginAndResetPasswordManager.ResetLoginTextAndAll();
         GoToRegisterPanel();
     }
 
     public void OnReturnLoginButtonClick()
     {
         signUpManager.ResetRegisterText();
-        loginAndResetPasswordManager.ResetResetPasswordEmailText();
+        loginAndResetPasswordManager.ResetLoginTextAndAll();
         GoToLoginPanel();
     }
     
     public void OnCantRememberPasswordButtonClick()
     {
-        loginAndResetPasswordManager.ResetLoginText();
+        loginAndResetPasswordManager.ResetLoginTextAndAll();
         GoToResetPasswordPanel();
+    }
+
+    public void OnCantRememberIdButtonClick()
+    {
+        loginAndResetPasswordManager.ResetLoginTextAndAll();
+        GoToFindIDPanel();
     }
     
 
@@ -62,6 +70,7 @@ public class StartAccountUIManager : MonoBehaviour
         loginPanel.SetActive(false);
         registerPanel.SetActive(false);
         resetPasswordPanel.SetActive(false);
+        findIDPanel.SetActive(false);
     }
 
     private void GoToLoginPanel()
@@ -70,6 +79,7 @@ public class StartAccountUIManager : MonoBehaviour
         registerPanel.SetActive(false);
         startPanel.SetActive(false);
         resetPasswordPanel.SetActive(false);
+        findIDPanel.SetActive(false);
     }
     
     private void GoToRegisterPanel()
@@ -78,11 +88,22 @@ public class StartAccountUIManager : MonoBehaviour
         loginPanel.SetActive(false);
         startPanel.SetActive(false);
         resetPasswordPanel.SetActive(false);
+        findIDPanel.SetActive(false);
     }
 
     private void GoToResetPasswordPanel()
     {
         resetPasswordPanel.SetActive(true);
+        registerPanel.SetActive(false);
+        loginPanel.SetActive(false);
+        startPanel.SetActive(false);
+        findIDPanel.SetActive(false);
+    }
+
+    private void GoToFindIDPanel()
+    {
+        findIDPanel.SetActive(true);
+        resetPasswordPanel.SetActive(false);
         registerPanel.SetActive(false);
         loginPanel.SetActive(false);
         startPanel.SetActive(false);
