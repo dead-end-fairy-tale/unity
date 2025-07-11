@@ -4,6 +4,8 @@ using UnityEngine.EventSystems;
 
 public class InputReceiver : MonoBehaviour
 {
+    private int floorLayerMask;
+
     public Vector3 position { get; private set; }
     public Vector3 dir { get; private set; }
     public bool tapPressed { get; private set; }
@@ -15,12 +17,12 @@ public class InputReceiver : MonoBehaviour
 
     void Awake()
     {
-        inputActions = new GameInput();
+        floorLayerMask = 1 << LayerMask.NameToLayer("Floor");
 
+        inputActions = new GameInput();
         inputActions.MobileGamePlay.Point.performed += ctx => touchPos = ctx.ReadValue<Vector2>();
         inputActions.MobileGamePlay.Point.canceled  += ctx => touchPos = Vector2.zero;
-
-        inputActions.MobileGamePlay.Tap.performed   += _ => tapPressed = true;
+        inputActions.MobileGamePlay.Tap.performed    += _   => tapPressed = true;
     }
 
     void OnEnable()  => inputActions.MobileGamePlay.Enable();
@@ -28,27 +30,20 @@ public class InputReceiver : MonoBehaviour
 
     void Update()
     {
-        if (tapPressed)
-        {
-            if (IsTouchOverUI())
-            {
-                tapPressed = false;
-                return;
-            }
-            
-            MoveToTap(touchPos);
-            tapPressed = false;
-        }
+        if (!tapPressed) return;
+        tapPressed = false;
+
+        if (IsTouchOverUI()) return;
+        HandleTap(touchPos);
     }
 
-    private void MoveToTap(Vector2 screenPos)
+    private void HandleTap(Vector2 screenPos)
     {
         Ray ray = Camera.main.ScreenPointToRay(screenPos);
-        if (Physics.Raycast(ray, out RaycastHit hit, 100f))
+        if (Physics.Raycast(ray, out RaycastHit hit, 100f, floorLayerMask))
         {
             position = hit.point;
-            dir    = (position - transform.position).normalized;
-            
+            dir      = (position - transform.position).normalized;
             OnTapPosition?.Invoke(position);
         }
     }

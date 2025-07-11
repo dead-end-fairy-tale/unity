@@ -1,16 +1,19 @@
+using System;
 using UnityEngine;
 
 public class PlayerSpawner : MonoBehaviour
 {
-    [SerializeField] DungeonGenerator dungeonGenerator;
-    [SerializeField] Transform spawnPoint;
-    [SerializeField] GameObject playerPrefab;
+    public static event Action<Transform> OnPlayerSpawned;
+
+    [SerializeField] private DungeonGenerator dungeonGenerator;
+    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private GameObject playerPrefab;
 
     private void Awake()
     {
         if (dungeonGenerator == null)
         {
-            Debug.LogError("DungeonGenerator 누락");
+            Debug.LogError("PlayerSpawner: DungeonGenerator 누락");
             return;
         }
 
@@ -19,16 +22,20 @@ public class PlayerSpawner : MonoBehaviour
 
     private void OnDestroy()
     {
-        dungeonGenerator.OnCompleted -= SpawnPlayer;
+        if (dungeonGenerator != null)
+            dungeonGenerator.OnCompleted -= SpawnPlayer;
     }
 
     private void SpawnPlayer()
     {
         dungeonGenerator.OnCompleted -= SpawnPlayer;
 
+        Transform spawnedTransform = null;
+
         if (playerPrefab != null)
         {
-            Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
+            GameObject go = Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
+            spawnedTransform = go.transform;
             Debug.Log("[PlayerSpawner] Instantiate 완료");
         }
         else
@@ -37,6 +44,7 @@ public class PlayerSpawner : MonoBehaviour
             if (existing != null)
             {
                 existing.transform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
+                spawnedTransform = existing.transform;
                 Debug.Log("[PlayerSpawner] 기존 Player 위치 이동");
             }
             else
@@ -45,7 +53,9 @@ public class PlayerSpawner : MonoBehaviour
             }
         }
 
+        if (spawnedTransform != null)
+            OnPlayerSpawned?.Invoke(spawnedTransform);
+
         enabled = false;
     }
-
 }
