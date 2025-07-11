@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2f88ce96c59b3cf4ab1c48c796e4de04
+guid: 8677df5dc946c3541ac91c64ffc24528
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,28 +7,48 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: road_black.001
-    second: {fileID: 2100000, guid: 1710774695c0aec4d9a1bcdc95f78bf2, type: 2}
+      name: robo_blue.001
+    second: {fileID: 2100000, guid: 5259591325470e446a0ba85d013fc920, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: road_blue.001
-    second: {fileID: 2100000, guid: 1c4dfb0fedb78ec4a9f8f4bdd04be4af, type: 2}
+      name: robo_blue.head.001
+    second: {fileID: 2100000, guid: 5378db6a59f55b54c8635d459ef4b7b6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: road_blue_head.001
-    second: {fileID: 2100000, guid: 3dc6dbb7552b3bf4382444f3050c0a87, type: 2}
+      name: robo_eye_white
+    second: {fileID: 2100000, guid: 8564264bcb693fb44b549e92407cd72f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: road_face.002
-    second: {fileID: 2100000, guid: 57be3a81e2fbef543900b6c8c7212ddd, type: 2}
+      name: robo_gray.001
+    second: {fileID: 2100000, guid: 2a85a165d00b14e439eefa643fa2a670, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: road_white.001
-    second: {fileID: 2100000, guid: bb29bf62a520a8c45b54117611d42958, type: 2}
+      name: robo_head_white
+    second: {fileID: 2100000, guid: 1a328ba267b674747a5a7e1440a56808, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: robo_indigo.001
+    second: {fileID: 2100000, guid: 64d70f7f065f06441b645d136936b7f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: robo_mouth.001
+    second: {fileID: 2100000, guid: e842d320f7905414393466e8f616bb8e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: robo_skyblue.001
+    second: {fileID: 2100000, guid: 31c1344b5765c9c47baf3544610b9010, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: robo_white.001
+    second: {fileID: 2100000, guid: ecec25d3a0b32884ea3b3b0b920f36b6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

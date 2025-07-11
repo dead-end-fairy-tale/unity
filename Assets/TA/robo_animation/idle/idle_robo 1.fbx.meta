@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2f88ce96c59b3cf4ab1c48c796e4de04
+guid: 03fcb76f19d8a4843a7bb2034501d7a9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,28 +7,83 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: road_black.001
-    second: {fileID: 2100000, guid: 1710774695c0aec4d9a1bcdc95f78bf2, type: 2}
+      name: flower_hand
+    second: {fileID: 2100000, guid: 2fc659edded0ece44b623a7193c0bb48, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: road_blue.001
-    second: {fileID: 2100000, guid: 1c4dfb0fedb78ec4a9f8f4bdd04be4af, type: 2}
+      name: flower_pink
+    second: {fileID: 2100000, guid: bf59bd946eeba6447bebaef17cc5d2e3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: road_blue_head.001
-    second: {fileID: 2100000, guid: 3dc6dbb7552b3bf4382444f3050c0a87, type: 2}
+      name: flower_plant
+    second: {fileID: 2100000, guid: 4a6dd1974ae44894e8fb819723492f69, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: road_face.002
-    second: {fileID: 2100000, guid: 57be3a81e2fbef543900b6c8c7212ddd, type: 2}
+      name: flower_red
+    second: {fileID: 2100000, guid: c0601384c9716e24bb1fe1bce46c35cf, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: road_white.001
-    second: {fileID: 2100000, guid: bb29bf62a520a8c45b54117611d42958, type: 2}
+      name: flower_white
+    second: {fileID: 2100000, guid: 709ec7f808267a14b94af976bd9220e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: flower_yellow
+    second: {fileID: 2100000, guid: 9be47480b0ffc3b478e0a7f3b10fb1e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: flower_yellow.001
+    second: {fileID: 2100000, guid: c93242b6b5935964885f0a115e528a12, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: robo_blue.001
+    second: {fileID: 2100000, guid: 5259591325470e446a0ba85d013fc920, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: robo_blue.head.001
+    second: {fileID: 2100000, guid: 5378db6a59f55b54c8635d459ef4b7b6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: robo_eye_white
+    second: {fileID: 2100000, guid: 8564264bcb693fb44b549e92407cd72f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: robo_gray.001
+    second: {fileID: 2100000, guid: 2a85a165d00b14e439eefa643fa2a670, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: robo_head_white
+    second: {fileID: 2100000, guid: 1a328ba267b674747a5a7e1440a56808, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: robo_indigo.001
+    second: {fileID: 2100000, guid: 64d70f7f065f06441b645d136936b7f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: robo_mouth.001
+    second: {fileID: 2100000, guid: 465b15756793a9a43b89b4c9ef995847, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: robo_skyblue.001
+    second: {fileID: 2100000, guid: 31c1344b5765c9c47baf3544610b9010, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: robo_white.001
+    second: {fileID: 2100000, guid: 709ec7f808267a14b94af976bd9220e6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

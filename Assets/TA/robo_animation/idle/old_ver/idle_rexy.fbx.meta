@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 96a5a46a32b8d094bb6805b475b2d96a
+guid: 69c4979fd097cd44f811bf84b9a8cbdf
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,103 +7,58 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: flower_hand
-    second: {fileID: 2100000, guid: f6775ba8915184f499ae437a422bb782, type: 2}
+      name: lexy_blackmetal.001
+    second: {fileID: 2100000, guid: defe580c4c5963242bb98318f333fadf, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: flower_pink
-    second: {fileID: 2100000, guid: c2a75c2eb9dae3e4cb93d65b0b7ae483, type: 2}
+      name: lexy_fire.001
+    second: {fileID: 2100000, guid: d5ec8da809a223a4290f961d09b0e9b2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: flower_plant
-    second: {fileID: 2100000, guid: db720e129d3722f4a81e1a69620d91dd, type: 2}
+      name: lexy_glass.001
+    second: {fileID: 2100000, guid: 0bf010fe0dc598649af0ff0c4022c823, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: flower_red
-    second: {fileID: 2100000, guid: 3b765f92a9d76e54e8ba209007b94316, type: 2}
+      name: lexy_graymetal.001
+    second: {fileID: 2100000, guid: 1e6f11552c025ea4a8858ee7d198ca34, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: flower_white
-    second: {fileID: 2100000, guid: ed5bafdc19f450447843d9830e80cbee, type: 2}
+      name: lexy_mouth.001
+    second: {fileID: 2100000, guid: cca1d7076b102fe40ba8163079204ea3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: flower_yellow
-    second: {fileID: 2100000, guid: 5f83d4f545613404cbf6ece3e916ad6f, type: 2}
+      name: lexy_orange.001
+    second: {fileID: 2100000, guid: 05aa6e04629d7ca49a95cf3fed2f9209, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: flower_yellow.001
-    second: {fileID: 2100000, guid: e5009b26b4ce8f547b0cf108fc645d09, type: 2}
+      name: lexy_orange.002
+    second: {fileID: 2100000, guid: 26e54f4c3c68bc84e81d71e37052344a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: gift_box
-    second: {fileID: 2100000, guid: ee23062d7d15e4a47a1ed8465d0a3b18, type: 2}
+      name: lexy_white.001
+    second: {fileID: 2100000, guid: 79c29082514932944b3358ee25568255, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: gift_ribbon
-    second: {fileID: 2100000, guid: dffce0a56417e5c4684ff46e091ad574, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: robo_blue.001
-    second: {fileID: 2100000, guid: 124c6e77bf7d21d49abe2597770119bc, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: robo_blue.head.001
-    second: {fileID: 2100000, guid: 9840fc06df2a2de448f7a4a6e0ae7b1d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: robo_eye_white
-    second: {fileID: 2100000, guid: 7e63aaa985257404a8aa4f76b7644aec, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: robo_gray.001
-    second: {fileID: 2100000, guid: dcd6415b4a6cbc947a104c79e17ca09b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: robo_head_white
-    second: {fileID: 2100000, guid: e8ab2866dce522644bb91c6e1ddd5f5e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: robo_indigo.001
-    second: {fileID: 2100000, guid: 25a7b78727e8c6a4c81a8b02e11042e4, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: robo_mouth.001
-    second: {fileID: 2100000, guid: 465b15756793a9a43b89b4c9ef995847, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: robo_skyblue.001
-    second: {fileID: 2100000, guid: 1497aa013cfa8b1418871e452db41af6, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: robo_white.001
-    second: {fileID: 2100000, guid: a509188d5ad05ef4daacca4a92435915, type: 2}
+      name: lexy_yellow.001
+    second: {fileID: 2100000, guid: 729063a073af80b4c8805b85fb50b04f, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: entire_basic
-    second: {fileID: 2800000, guid: 107bbe35fad05e94199faf14cf48dfb1, type: 3}
+      name: body
+    second: {fileID: 2800000, guid: 1d7efd4f09da8b1489631d0efaeaca0a, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: robo_body
-    second: {fileID: 2800000, guid: 1a3bb71380e1b8149aaccdf836ffbf14, type: 3}
+      name: eyeonly
+    second: {fileID: 2800000, guid: 8981557596d61c04d8891086a45c75aa, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
