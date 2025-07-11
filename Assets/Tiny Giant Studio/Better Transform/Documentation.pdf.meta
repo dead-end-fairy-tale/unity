@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: a5827bb3f07c6954798ac297e18093cc
-AssemblyDefinitionImporter:
+guid: fedc67622739e8a4ab3fef2aaedf46d3
+DefaultImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
@@ -11,5 +11,5 @@ AssetOrigin:
   packageName: Better Transform - Size, Notes, Global-Local workspace & child parent
     transform
   packageVersion: 2.11.0a
-  assetPath: Assets/Plugins/Tiny Giant Studio/Better Inspector/Common Scripts/Editor/TinyGiantStudio.BetterInspector.Editor.asmdef
+  assetPath: Assets/Tiny Giant Studio/Better Transform/Documentation.pdf
   uploadId: 766716

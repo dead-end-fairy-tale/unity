@@ -17,11 +17,11 @@
         </ui:GroupBox>
         <ui:GroupBox name="TopGroupBox" class="header" style="margin-left: -10px; margin-right: -10px; padding-right: 10px; margin-top: 0; background-color: rgba(255, 255, 255, 0.09); flex-direction: row; padding-top: 0; padding-bottom: 0; padding-left: 0; margin-bottom: 2px; border-bottom-width: 1px; border-bottom-color: rgba(0, 0, 0, 0.39); align-items: center; border-top-width: 0; border-top-color: rgba(255, 255, 255, 0.2);">
             <ui:Button display-tooltip-when-elided="true" name="WorldSpaceButton" tooltip="Values are in global orientation" class="toolbarComboButton" style="flex-grow: 1; display: none; align-items: center; padding-right: 5px; border-right-width: 0; border-left-color: rgba(0, 0, 0, 0.1); border-right-color: rgba(0, 0, 0, 0.1); border-top-color: rgba(0, 0, 0, 0.1); border-bottom-color: rgba(0, 0, 0, 0.1); flex-shrink: 0; justify-content: flex-start; border-left-width: 0; border-top-width: 0; border-bottom-width: 0; margin-left: 0; margin-right: 10px; margin-top: 0; margin-bottom: 0; padding-left: 10px; border-top-right-radius: 5px; border-bottom-right-radius: 5px;">
-                <ui:VisualElement name="Icon" style="background-image: url(&apos;project://database/Assets/Plugins/Tiny%20Giant%20Studio/Better%20Inspector/Better%20Transform/Artworks/TGS_d_ToolHandleGlobal@2x.png?fileID=2800000&amp;guid=cefea71d543290e4aa58bb2334c15ec2&amp;type=3#TGS_d_ToolHandleGlobal@2x&apos;);" />
+                <ui:VisualElement name="Icon" style="background-image: url(&quot;project://database/Assets/Plugins/Tiny%20Giant%20Studio/Better%20Inspector/Better%20Transform/Artworks/TGS_d_ToolHandleGlobal@2x.png?fileID=2800000&amp;guid=cefea71d543290e4aa58bb2334c15ec2&amp;type=3#TGS_d_ToolHandleGlobal@2x&quot;);" />
                 <ui:Label text="World Space" display-tooltip-when-elided="true" name="WorldSpaceLabel" />
             </ui:Button>
             <ui:Button display-tooltip-when-elided="true" name="LocalSpaceButton" tooltip="Values are in active object&apos;s orientation" class="toolbarComboButton" style="flex-grow: 1; align-items: center; border-right-width: 0; padding-right: 5px; border-left-color: rgba(0, 0, 0, 0.1); border-right-color: rgba(0, 0, 0, 0.1); border-top-color: rgba(0, 0, 0, 0.1); border-bottom-color: rgba(0, 0, 0, 0.1); flex-shrink: 0; justify-content: flex-start; border-left-width: 0; border-top-width: 0; border-bottom-width: 0; margin-left: 0; margin-right: 10px; margin-top: 0; margin-bottom: 0; padding-left: 10px; border-top-right-radius: 5px; border-bottom-right-radius: 5px;">
-                <ui:VisualElement name="Icon" style="background-image: url(&apos;project://database/Assets/Plugins/Tiny%20Giant%20Studio/Better%20Inspector/Better%20Transform/Artworks/TGS_d_ToolHandleLocal@2x.png?fileID=2800000&amp;guid=aaf8ef902b553ca488e57d06f24a73b2&amp;type=3#TGS_d_ToolHandleLocal@2x&apos;);" />
+                <ui:VisualElement name="Icon" style="background-image: url(&quot;project://database/Assets/Plugins/Tiny%20Giant%20Studio/Better%20Inspector/Better%20Transform/Artworks/TGS_d_ToolHandleLocal@2x.png?fileID=2800000&amp;guid=aaf8ef902b553ca488e57d06f24a73b2&amp;type=3#TGS_d_ToolHandleLocal@2x&quot;);" />
                 <ui:Label text="Local Space" display-tooltip-when-elided="true" name="LocalSpaceLabel" />
             </ui:Button>
             <ui:VisualElement style="flex-grow: 1;" />
@@ -139,36 +139,36 @@
                 <ui:Toggle name="FoldoutToggle" text="Size" value="false" view-data-key="SizeFoldoutToggle" class="unity-foldout__toggle foldout-toggle" />
                 <ui:VisualElement style="height: 2px; flex-grow: 1; flex-shrink: 1;" />
                 <ui:Button display-tooltip-when-elided="true" name="RefreshSizeButton" tooltip="Refresh" class="toolbarComboButton toolbarComboButton-normal">
-                    <ui:VisualElement name="Icon" style="background-image: url(&apos;project://database/Assets/Plugins/Tiny%20Giant%20Studio/Better%20Inspector/Better%20Transform/Artworks/TGS_refresh.png?fileID=2800000&amp;guid=759de24275ec7b84dbb60bca983a29fd&amp;type=3#TGS_refresh&apos;);" />
+                    <ui:VisualElement name="Icon" style="background-image: url(&quot;project://database/Assets/Plugins/Tiny%20Giant%20Studio/Better%20Inspector/Better%20Transform/Artworks/TGS_refresh.png?fileID=2800000&amp;guid=759de24275ec7b84dbb60bca983a29fd&amp;type=3#TGS_refresh&quot;);" />
                     <ui:Label text="Refresh" display-tooltip-when-elided="true" name="Label" style="flex-shrink: 1;" />
                 </ui:Button>
                 <ui:GroupBox name="GizmoGroupBox" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; justify-content: center;">
                     <ui:Button display-tooltip-when-elided="true" name="GizmoOn" tooltip="Click to toggle scene gizmo off" class="toolbarComboButton toolbarComboButton-normal">
-                        <ui:VisualElement name="Icon" style="background-image: url(&apos;project://database/Assets/Plugins/Tiny%20Giant%20Studio/Better%20Inspector/Better%20Transform/Artworks/TGS_visibility-on.png?fileID=2800000&amp;guid=9175bed6d8cfbb54aa4df683b0138b93&amp;type=3#TGS_visibility-on&apos;);" />
+                        <ui:VisualElement name="Icon" style="background-image: url(&quot;project://database/Assets/Plugins/Tiny%20Giant%20Studio/Better%20Inspector/Better%20Transform/Artworks/TGS_visibility-on.png?fileID=2800000&amp;guid=9175bed6d8cfbb54aa4df683b0138b93&amp;type=3#TGS_visibility-on&quot;);" />
                         <ui:Label text="Gizmo" display-tooltip-when-elided="true" name="Label" style="flex-shrink: 1;" />
                     </ui:Button>
                     <ui:Button display-tooltip-when-elided="true" name="GizmoOff" tooltip="Click to toggle scene gizmo on" class="toolbarComboButton toolbarComboButton-normal" style="display: none;">
-                        <ui:VisualElement name="Icon" style="background-image: url(&apos;project://database/Assets/Plugins/Tiny%20Giant%20Studio/Better%20Inspector/Better%20Transform/Artworks/TGS_visibility-off.png?fileID=2800000&amp;guid=c2de49d23145ad044a3015138ef11fa6&amp;type=3#TGS_visibility-off&apos;);" />
+                        <ui:VisualElement name="Icon" style="background-image: url(&quot;project://database/Assets/Plugins/Tiny%20Giant%20Studio/Better%20Inspector/Better%20Transform/Artworks/TGS_visibility-off.png?fileID=2800000&amp;guid=c2de49d23145ad044a3015138ef11fa6&amp;type=3#TGS_visibility-off&quot;);" />
                         <ui:Label text="Gizmo" display-tooltip-when-elided="true" name="Label" style="flex-shrink: 1;" />
                     </ui:Button>
                 </ui:GroupBox>
                 <ui:GroupBox name="CalculationTypeGroupBox" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; justify-content: center;">
                     <ui:Button name="RendererSizeButton" tooltip="Calculation is done using Renderers. This is the faster method for size calculation but expect minor inaccuracy. This is the recommended setting." class="toolbarComboButton toolbarComboButton-normal">
-                        <ui:VisualElement name="Icon" style="background-image: url(&apos;project://database/Assets/Plugins/Tiny%20Giant%20Studio/Better%20Inspector/Better%20Transform/Artworks/TGS_d_MeshRenderer%20Icon.png?fileID=2800000&amp;guid=8d3b11ed42ae0a142875a12da4e54750&amp;type=3#TGS_d_MeshRenderer Icon&apos;);" />
+                        <ui:VisualElement name="Icon" style="background-image: url(&quot;project://database/Assets/Plugins/Tiny%20Giant%20Studio/Better%20Inspector/Better%20Transform/Artworks/TGS_d_MeshRenderer%20Icon.png?fileID=2800000&amp;guid=8d3b11ed42ae0a142875a12da4e54750&amp;type=3#TGS_d_MeshRenderer Icon&quot;);" />
                         <ui:Label text="Renderer" display-tooltip-when-elided="true" name="Label" style="flex-shrink: 1;" />
                     </ui:Button>
                     <ui:Button name="FilterSizeButton" tooltip="Calculation is done by going through vertices of each mesh. This is more accurate method for size calculation. But, not recommended for heavier projects." class="toolbarComboButton toolbarComboButton-normal" style="display: none;">
-                        <ui:VisualElement name="Icon" style="background-image: url(&apos;project://database/Assets/Plugins/Tiny%20Giant%20Studio/Better%20Inspector/Better%20Transform/Artworks/TGS_d_Mesh%20Icon.png?fileID=2800000&amp;guid=725587139d64df4439404d8a28d756a1&amp;type=3#TGS_d_Mesh Icon&apos;);" />
+                        <ui:VisualElement name="Icon" style="background-image: url(&quot;project://database/Assets/Plugins/Tiny%20Giant%20Studio/Better%20Inspector/Better%20Transform/Artworks/TGS_d_Mesh%20Icon.png?fileID=2800000&amp;guid=725587139d64df4439404d8a28d756a1&amp;type=3#TGS_d_Mesh Icon&quot;);" />
                         <ui:Label text="Filter" display-tooltip-when-elided="true" name="Label" style="flex-shrink: 1;" />
                     </ui:Button>
                 </ui:GroupBox>
                 <ui:GroupBox name="SizeTypeGroupBox" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; justify-content: center;">
                     <ui:Button display-tooltip-when-elided="true" name="SelfSize" tooltip="Only this GameObject&apos;s size is calculating, ignoring the children." class="toolbarComboButton toolbarComboButton-normal">
-                        <ui:VisualElement name="Icon" style="background-image: url(&apos;project://database/Assets/Plugins/Tiny%20Giant%20Studio/Better%20Inspector/Better%20Transform/Artworks/TGS_d_ToolHandleLocal@2x.png?fileID=2800000&amp;guid=aaf8ef902b553ca488e57d06f24a73b2&amp;type=3#TGS_d_ToolHandleLocal@2x&apos;);" />
+                        <ui:VisualElement name="Icon" style="background-image: url(&quot;project://database/Assets/Plugins/Tiny%20Giant%20Studio/Better%20Inspector/Better%20Transform/Artworks/TGS_d_ToolHandleLocal@2x.png?fileID=2800000&amp;guid=aaf8ef902b553ca488e57d06f24a73b2&amp;type=3#TGS_d_ToolHandleLocal@2x&quot;);" />
                         <ui:Label text="Self" display-tooltip-when-elided="true" name="Label" style="flex-shrink: 1;" />
                     </ui:Button>
                     <ui:Button display-tooltip-when-elided="true" name="HierarchySize" tooltip="Every child/subchild is included in calculating the size." class="toolbarComboButton toolbarComboButton-normal" style="display: none;">
-                        <ui:VisualElement name="Icon" style="background-image: url(&apos;project://database/Assets/Plugins/Tiny%20Giant%20Studio/Better%20Inspector/Better%20Transform/Artworks/TGS_d_Folder%20Icon.png?fileID=2800000&amp;guid=31c1d6a1e58148540a74de14fb534b2f&amp;type=3#TGS_d_Folder Icon&apos;);" />
+                        <ui:VisualElement name="Icon" style="background-image: url(&quot;project://database/Assets/Plugins/Tiny%20Giant%20Studio/Better%20Inspector/Better%20Transform/Artworks/TGS_d_Folder%20Icon.png?fileID=2800000&amp;guid=31c1d6a1e58148540a74de14fb534b2f&amp;type=3#TGS_d_Folder Icon&quot;);" />
                         <ui:Label text="Hierarchy" display-tooltip-when-elided="true" name="Label" style="flex-shrink: 1;" />
                     </ui:Button>
                 </ui:GroupBox>
@@ -233,7 +233,7 @@
             </ui:GroupBox>
             <ui:GroupBox name="Content" class="container content" style="padding-top: 0; display: flex;">
                 <ui:GroupBox name="Footer" class="customToolbar footer">
-                    <uie:ToolbarButton text="v2.11.0" display-tooltip-when-elided="true" name="AssetLink" tooltip="Click to check if there are updates available." class="version" />
+                    <uie:ToolbarButton text="v2.11.0a" display-tooltip-when-elided="true" name="AssetLink" tooltip="Click to check if there are updates available." class="version" />
                     <uie:ToolbarButton text="Documentation" display-tooltip-when-elided="true" name="Documentation" tooltip="Better Transform Documentation." />
                     <uie:ToolbarButton text="Other Assets" display-tooltip-when-elided="true" name="OtherAssetsLink" tooltip="Checkout other awesome assets." />
                 </ui:GroupBox>
