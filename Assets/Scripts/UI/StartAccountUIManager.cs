@@ -77,7 +77,7 @@ public class StartAccountUIManager : MonoBehaviour
     {
         loginPanel.SetActive(true);
         registerPanel.SetActive(false);
-        startPanel.SetActive(false);
+        // startPanel.SetActive(false);
         resetPasswordPanel.SetActive(false);
         findIDPanel.SetActive(false);
     }
@@ -86,7 +86,7 @@ public class StartAccountUIManager : MonoBehaviour
     {
         registerPanel.SetActive(true);
         loginPanel.SetActive(false);
-        startPanel.SetActive(false);
+        // startPanel.SetActive(false);
         resetPasswordPanel.SetActive(false);
         findIDPanel.SetActive(false);
     }
@@ -96,7 +96,7 @@ public class StartAccountUIManager : MonoBehaviour
         resetPasswordPanel.SetActive(true);
         registerPanel.SetActive(false);
         loginPanel.SetActive(false);
-        startPanel.SetActive(false);
+        // startPanel.SetActive(false);
         findIDPanel.SetActive(false);
     }
 
@@ -106,7 +106,7 @@ public class StartAccountUIManager : MonoBehaviour
         resetPasswordPanel.SetActive(false);
         registerPanel.SetActive(false);
         loginPanel.SetActive(false);
-        startPanel.SetActive(false);
+        // startPanel.SetActive(false);
     }
     
     #endregion
