@@ -23,11 +23,11 @@ public class LoginAndResetPasswordManager : MonoBehaviour, IAccountManager
     {
         string email = findIDEmailInputField.text;
 
-        StartCoroutine(API_FindID.Send(email, (status, message) =>
+        StartCoroutine(API_FindID.Send(email, (status,message) =>
         {
             if (status)
             {
-                AlertSystem.Instance.Notice(message);
+                AlertSystem.Instance.Notice($"Your ID: {message}");
             }
             else
             {

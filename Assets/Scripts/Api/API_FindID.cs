@@ -9,6 +9,7 @@ public class API_FindID : MonoBehaviour
     public class FindIDResponse
     {
         public bool status;
+        public string id;
         public string message;
     }
     
@@ -28,12 +29,16 @@ public class API_FindID : MonoBehaviour
             string jsonText = webRequest.downloadHandler.text;
             var result = JsonConvert.DeserializeObject<FindIDResponse>(jsonText);
             
-            onComplete?.Invoke(result.status, result.message);
+            Debug.Log($"{result.status}, {result.id}, {result.message}");
+            
+            onComplete?.Invoke(result.status, result.id);
         }
         else
         {
             string jsonText = webRequest.downloadHandler.text;
             var result = JsonConvert.DeserializeObject<FindIDResponse>(jsonText);
+            
+            Debug.Log($"{result.status}, {result.id}, {result.message}");
             
             onComplete?.Invoke(false, $"Request Error: {result.message}");
         }
