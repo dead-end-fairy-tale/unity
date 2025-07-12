@@ -3,8 +3,9 @@ using UnityEngine;
 public abstract class BehaviorTreeAgent<TContext> : MonoBehaviour
     where TContext : IBehaviorContext
 {
+    public TContext Context;
+    
     protected BehaviorTree<TContext> Tree;
-    protected TContext Context;
 
     protected virtual void Awake()
     {
