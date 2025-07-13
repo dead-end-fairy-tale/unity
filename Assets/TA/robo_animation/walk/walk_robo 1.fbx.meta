@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 96a5a46a32b8d094bb6805b475b2d96a
+guid: 0ca1a705ef4dc094eabc7244dc131f27
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,78 +7,33 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: flower_hand
-    second: {fileID: 2100000, guid: f6775ba8915184f499ae437a422bb782, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: flower_pink
-    second: {fileID: 2100000, guid: c2a75c2eb9dae3e4cb93d65b0b7ae483, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: flower_plant
-    second: {fileID: 2100000, guid: db720e129d3722f4a81e1a69620d91dd, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: flower_red
-    second: {fileID: 2100000, guid: 3b765f92a9d76e54e8ba209007b94316, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: flower_white
-    second: {fileID: 2100000, guid: ed5bafdc19f450447843d9830e80cbee, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: flower_yellow
-    second: {fileID: 2100000, guid: 5f83d4f545613404cbf6ece3e916ad6f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: flower_yellow.001
-    second: {fileID: 2100000, guid: e5009b26b4ce8f547b0cf108fc645d09, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: gift_box
-    second: {fileID: 2100000, guid: ee23062d7d15e4a47a1ed8465d0a3b18, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: gift_ribbon
-    second: {fileID: 2100000, guid: dffce0a56417e5c4684ff46e091ad574, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: robo_blue.001
-    second: {fileID: 2100000, guid: 124c6e77bf7d21d49abe2597770119bc, type: 2}
+    second: {fileID: 2100000, guid: 5259591325470e446a0ba85d013fc920, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: robo_blue.head.001
-    second: {fileID: 2100000, guid: 9840fc06df2a2de448f7a4a6e0ae7b1d, type: 2}
+    second: {fileID: 2100000, guid: 5378db6a59f55b54c8635d459ef4b7b6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: robo_eye_white
-    second: {fileID: 2100000, guid: 7e63aaa985257404a8aa4f76b7644aec, type: 2}
+    second: {fileID: 2100000, guid: 8564264bcb693fb44b549e92407cd72f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: robo_gray.001
-    second: {fileID: 2100000, guid: dcd6415b4a6cbc947a104c79e17ca09b, type: 2}
+    second: {fileID: 2100000, guid: 2a85a165d00b14e439eefa643fa2a670, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: robo_head_white
-    second: {fileID: 2100000, guid: e8ab2866dce522644bb91c6e1ddd5f5e, type: 2}
+    second: {fileID: 2100000, guid: 1a328ba267b674747a5a7e1440a56808, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: robo_indigo.001
-    second: {fileID: 2100000, guid: 25a7b78727e8c6a4c81a8b02e11042e4, type: 2}
+    second: {fileID: 2100000, guid: 64d70f7f065f06441b645d136936b7f0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -88,22 +43,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: robo_skyblue.001
-    second: {fileID: 2100000, guid: 1497aa013cfa8b1418871e452db41af6, type: 2}
+    second: {fileID: 2100000, guid: 31c1344b5765c9c47baf3544610b9010, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: robo_white.001
-    second: {fileID: 2100000, guid: a509188d5ad05ef4daacca4a92435915, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: entire_basic
-    second: {fileID: 2800000, guid: 107bbe35fad05e94199faf14cf48dfb1, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: robo_body
-    second: {fileID: 2800000, guid: 1a3bb71380e1b8149aaccdf836ffbf14, type: 3}
+    second: {fileID: 2100000, guid: ecec25d3a0b32884ea3b3b0b920f36b6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -197,7 +142,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0

@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[DefaultExecutionOrder(-1)]
 public class BT_Player : BehaviorTreeAgent<PlayerContext>
 {
     private Action<Vector3> _onTapCallback;
@@ -30,17 +31,23 @@ public class BT_Player : BehaviorTreeAgent<PlayerContext>
         {
             sel.Sequence(idle =>
             {
-                idle.Condition(new StateCondition<PlayerContext, PlayerState>(PlayerState.Idle));
-                idle.Action   (new SetState<PlayerContext, PlayerState>(PlayerState.Move));
+                // idle.Action(new SetState<PlayerContext, PlayerState>(PlayerState.Idle));
+
+                idle.Decorator(new AbortIf<PlayerContext>(
+                    new HasDestination<PlayerContext>(),
+                    new PlayerIdleAction()
+                ));
             });
 
             sel.Sequence(move =>
             {
-                move.Condition(new StateCondition<PlayerContext, PlayerState>(PlayerState.Move));
-                move.Action   (new SetState<PlayerContext, PlayerState>(PlayerState.Move));
-                move.Action   (new SetNavDestination<PlayerContext>());
-                move.Action   (new WaitUntilArrived<PlayerContext>());
-                move.Action   (new SetState<PlayerContext, PlayerState>(PlayerState.Idle));
+                move.Condition(new HasDestination<PlayerContext>());
+
+                move.Action(new SetState<PlayerContext, PlayerState>(PlayerState.Move));
+                move.Action(new SetNavDestination<PlayerContext>());
+                move.Action(new WaitUntilArrived<PlayerContext>());
+                move.Action(new RemoveDestination<PlayerContext>());
+                move.Action(new SetState<PlayerContext, PlayerState>(PlayerState.Idle));
             });
         });
     }

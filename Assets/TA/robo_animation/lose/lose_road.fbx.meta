@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: efd315e2f6f48704e8c2243daf08eef0
+guid: 2f88ce96c59b3cf4ab1c48c796e4de04
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -8,47 +8,27 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: road_black.001
-    second: {fileID: 2100000, guid: 4c139e333771f7c48b3df0e2b5aed3cd, type: 2}
+    second: {fileID: 2100000, guid: 1710774695c0aec4d9a1bcdc95f78bf2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: road_blue.001
-    second: {fileID: 2100000, guid: 142fe5f4b2be7694b8a68e57b3808032, type: 2}
+    second: {fileID: 2100000, guid: 1c4dfb0fedb78ec4a9f8f4bdd04be4af, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: road_blue_head.001
-    second: {fileID: 2100000, guid: 6405431ce7d35b843893bd45726809de, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: road_face.001
-    second: {fileID: 2100000, guid: 9b2383dbac3a76441b9b077361465c95, type: 2}
+    second: {fileID: 2100000, guid: 3dc6dbb7552b3bf4382444f3050c0a87, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: road_face.002
-    second: {fileID: 2100000, guid: cbb9f66479a439849b122a13c5270a35, type: 2}
+    second: {fileID: 2100000, guid: 57be3a81e2fbef543900b6c8c7212ddd, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: road_white.001
-    second: {fileID: 2100000, guid: 7ac9e3127389f4e4797f94e18ebc9fd8, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: body
-    second: {fileID: 2800000, guid: ba194a277ff36f4468b996b1caad2356, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: double_wink
-    second: {fileID: 2800000, guid: e65bb8e4d46286c45b2bea5fb8534da6, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: eyeshadow
-    second: {fileID: 2800000, guid: ca37b1114fe81434f9b857f68956e563, type: 3}
+    second: {fileID: 2100000, guid: bb29bf62a520a8c45b54117611d42958, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -142,7 +122,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0

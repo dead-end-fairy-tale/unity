@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a4ebbf318d81eed4fa9d4652512fe899
+guid: 69c4979fd097cd44f811bf84b9a8cbdf
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,48 +7,58 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: road_black.001
-    second: {fileID: 2100000, guid: 771b922268eec0f47b6f6ead53fc9cae, type: 2}
+      name: lexy_blackmetal.001
+    second: {fileID: 2100000, guid: defe580c4c5963242bb98318f333fadf, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: road_blue.001
-    second: {fileID: 2100000, guid: 855670155c554634abe61663558d0e16, type: 2}
+      name: lexy_fire.001
+    second: {fileID: 2100000, guid: d5ec8da809a223a4290f961d09b0e9b2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: road_blue_head.001
-    second: {fileID: 2100000, guid: 23cd5417e2c6dc449af663aaf4d8ddec, type: 2}
+      name: lexy_glass.001
+    second: {fileID: 2100000, guid: 0bf010fe0dc598649af0ff0c4022c823, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: road_face.001
-    second: {fileID: 2100000, guid: 99192db2c5d18a940ae43cf6b05b56e9, type: 2}
+      name: lexy_graymetal.001
+    second: {fileID: 2100000, guid: 1e6f11552c025ea4a8858ee7d198ca34, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: road_face.002
-    second: {fileID: 2100000, guid: 4b30344286cefa146bb48446b9c9238e, type: 2}
+      name: lexy_mouth.001
+    second: {fileID: 2100000, guid: cca1d7076b102fe40ba8163079204ea3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: road_white.001
-    second: {fileID: 2100000, guid: c3514e9032387164a8845f09a201d1d9, type: 2}
+      name: lexy_orange.001
+    second: {fileID: 2100000, guid: 05aa6e04629d7ca49a95cf3fed2f9209, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lexy_orange.002
+    second: {fileID: 2100000, guid: 26e54f4c3c68bc84e81d71e37052344a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lexy_white.001
+    second: {fileID: 2100000, guid: 79c29082514932944b3358ee25568255, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lexy_yellow.001
+    second: {fileID: 2100000, guid: 729063a073af80b4c8805b85fb50b04f, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: body
-    second: {fileID: 2800000, guid: 8a6137c80235b164e89ea4f2b6276218, type: 3}
+    second: {fileID: 2800000, guid: 1d7efd4f09da8b1489631d0efaeaca0a, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: eyeonly
-    second: {fileID: 2800000, guid: 3c82b669d4ea63f40bca0a79fe31d999, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: eyeshadow
-    second: {fileID: 2800000, guid: 2083c9c608cce094f8bb1ea8c33b22eb, type: 3}
+    second: {fileID: 2800000, guid: 8981557596d61c04d8891086a45c75aa, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
