@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoginAndResetPasswordManager : MonoBehaviour, IAccountManager
 {
@@ -23,11 +24,11 @@ public class LoginAndResetPasswordManager : MonoBehaviour, IAccountManager
     {
         string email = findIDEmailInputField.text;
 
-        StartCoroutine(API_FindID.Send(email, (status, message) =>
+        StartCoroutine(API_FindID.Send(email, (status,message) =>
         {
             if (status)
             {
-                AlertSystem.Instance.Notice(message);
+                AlertSystem.Instance.Notice($"Your ID: {message}");
             }
             else
             {
@@ -71,7 +72,7 @@ public class LoginAndResetPasswordManager : MonoBehaviour, IAccountManager
                 if (status)
                 {
                     Debug.Log("Login successful");
-                    //로비씬으로 이동
+                    SceneManager.LoadScene("LobbyScene");
                 }
                 else
                 {
