@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using BlockCoding;
@@ -19,20 +18,20 @@ public class BlockCodingController : MonoBehaviour
     private List<IBlockCommand> _uiCommands   = new List<IBlockCommand>();
     private List<IBlockCommand> _execCommands = new List<IBlockCommand>();
 
-    private bool _isLooping = false;
+    private bool _isLooping     = false;
     private int  _loopStartIndex = 0;
-    private int  _loopCount = 0;
+    private int  _loopCount     = 0;
 
     private void Start()
     {
         uiManager.OnAddCommand += HandleAddCommand;
-        uiManager.OnExecute    += HandleExecute;
+        uiManager.OnExecute    += () => TurnManager.Instance.StartTurn(this);
     }
 
     private void OnDestroy()
     {
         uiManager.OnAddCommand -= HandleAddCommand;
-        uiManager.OnExecute    -= HandleExecute;
+        uiManager.OnExecute    -= () => TurnManager.Instance.StartTurn(this);
     }
 
     private void HandleAddCommand(CommandType type)
@@ -58,7 +57,7 @@ public class BlockCodingController : MonoBehaviour
                 break;
 
             case CommandType.RotateRight:
-                cmd = new RotateCommand(movementSystem, movementSystem.rotationAngle);
+                cmd = new RotateCommand(movementSystem,  movementSystem.rotationAngle);
                 break;
 
             case CommandType.LoopStart:
@@ -75,7 +74,6 @@ public class BlockCodingController : MonoBehaviour
             return;
 
         _uiCommands.Add(cmd);
-
         if (cmd.Type != CommandType.LoopStart)
             _execCommands.Add(cmd);
 
@@ -84,40 +82,31 @@ public class BlockCodingController : MonoBehaviour
 
     private IBlockCommand StartLoop()
     {
-        _isLooping = true;
-        _loopStartIndex = _execCommands.Count;
-        _loopCount = 1;
+        _isLooping       = true;
+        _loopStartIndex  = _execCommands.Count;
+        _loopCount       = 1;
         return new LoopStartCommand();
     }
 
     private IBlockCommand EndLoop()
     {
         int count = _execCommands.Count - _loopStartIndex;
-        List<IBlockCommand> innerCommands = _execCommands.GetRange(_loopStartIndex, count);
+        var inner = _execCommands.GetRange(_loopStartIndex, count);
         _execCommands.RemoveRange(_loopStartIndex, count);
 
-        LoopCommand loopCmd = new LoopCommand(innerCommands, _loopCount);
+        var loopCmd = new LoopCommand(inner, _loopCount);
         _execCommands.Add(loopCmd);
         _isLooping = false;
         return loopCmd;
     }
 
-    private void HandleExecute()
+    public List<IBlockCommand> GetExecCommands()
     {
-        if (_execCommands.Count == 0)
-            return;
-
-        StartCoroutine(RunCommands());
+        return new List<IBlockCommand>(_execCommands);
     }
 
-    private IEnumerator RunCommands()
+    public void ClearAllCommands()
     {
-        foreach (var cmd in _execCommands)
-        {
-            yield return cmd.Execute();
-            yield return new WaitForSecondsRealtime(0.5f);
-        }
-
         _execCommands.Clear();
         _uiCommands.Clear();
         _isLooping = false;

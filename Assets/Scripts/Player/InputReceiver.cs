@@ -43,7 +43,7 @@ public class InputReceiver : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, 100f, floorLayerMask))
         {
             position = hit.point;
-            dir      = (position - transform.position).normalized;
+            dir = (position - transform.position).normalized;
             OnTapPosition?.Invoke(position);
         }
     }
