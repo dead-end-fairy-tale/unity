@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerSpawner : MonoBehaviour
 {
@@ -31,20 +32,24 @@ public class PlayerSpawner : MonoBehaviour
         dungeonGenerator.OnCompleted -= SpawnPlayer;
 
         Transform spawnedTransform = null;
+        GameObject player;
 
         if (playerPrefab != null)
         {
-            GameObject go = Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
-            spawnedTransform = go.transform;
+            player = Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
+            spawnedTransform = player.transform;
+            
             Debug.Log("[PlayerSpawner] Instantiate 완료");
         }
         else
         {
-            GameObject existing = GameObject.FindWithTag("Player");
-            if (existing != null)
+            player = GameObject.FindWithTag("Player");
+            
+            if (player != null)
             {
-                existing.transform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
-                spawnedTransform = existing.transform;
+                player.transform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
+                spawnedTransform = player.transform;
+                
                 Debug.Log("[PlayerSpawner] 기존 Player 위치 이동");
             }
             else
@@ -52,6 +57,10 @@ public class PlayerSpawner : MonoBehaviour
                 Debug.LogWarning("[PlayerSpawner] 스폰할 플레이어를 찾을 수 없습니다.");
             }
         }
+        
+        var dungeonScene = SceneManager.GetSceneByName("DungeonScene");
+        if (dungeonScene.IsValid())
+            SceneManager.MoveGameObjectToScene(player, dungeonScene);
 
         if (spawnedTransform != null)
             OnPlayerSpawned?.Invoke(spawnedTransform);

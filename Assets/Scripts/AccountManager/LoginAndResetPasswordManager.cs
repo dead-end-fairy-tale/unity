@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoginAndResetPasswordManager : MonoBehaviour, IAccountManager
 {
@@ -71,7 +72,7 @@ public class LoginAndResetPasswordManager : MonoBehaviour, IAccountManager
                 if (status)
                 {
                     Debug.Log("Login successful");
-                    //로비씬으로 이동
+                    SceneManager.LoadScene("LobbyScene");
                 }
                 else
                 {
