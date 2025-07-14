@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2f88ce96c59b3cf4ab1c48c796e4de04
+guid: a6fb53f799eee4b428104f9df351d5ad
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -23,12 +23,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: road_face.002
-    second: {fileID: 2100000, guid: 57be3a81e2fbef543900b6c8c7212ddd, type: 2}
+    second: {fileID: 2100000, guid: d019e3d9755c6274fac9203d82608fed, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: road_white.001
-    second: {fileID: 2100000, guid: bb29bf62a520a8c45b54117611d42958, type: 2}
+    second: {fileID: 2100000, guid: 4f5a5a2a146b25644b2dc41725d74d26, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

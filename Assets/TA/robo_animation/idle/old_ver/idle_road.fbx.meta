@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2f88ce96c59b3cf4ab1c48c796e4de04
+guid: a4ebbf318d81eed4fa9d4652512fe899
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -22,13 +22,33 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: road_face.001
+    second: {fileID: 2100000, guid: 06252efa531181a438dc7035dc004d1a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: road_face.002
-    second: {fileID: 2100000, guid: 57be3a81e2fbef543900b6c8c7212ddd, type: 2}
+    second: {fileID: 2100000, guid: d019e3d9755c6274fac9203d82608fed, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: road_white.001
     second: {fileID: 2100000, guid: bb29bf62a520a8c45b54117611d42958, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: body
+    second: {fileID: 2800000, guid: 8a6137c80235b164e89ea4f2b6276218, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: eyeonly
+    second: {fileID: 2800000, guid: 3c82b669d4ea63f40bca0a79fe31d999, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: eyeshadow
+    second: {fileID: 2800000, guid: 2083c9c608cce094f8bb1ea8c33b22eb, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -122,7 +142,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
