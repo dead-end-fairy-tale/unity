@@ -202,7 +202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34af6fae1382310459a162b049c523fc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.819618
+      value: -18.509315
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34af6fae1382310459a162b049c523fc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -433,7 +433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b857f33d9f8ef3e458fabe4d0b97e2fe, type: 3}
       propertyPath: m_Name
-      value: witch5@Left Turn
+      value: western_witch@Left Turn
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: b857f33d9f8ef3e458fabe4d0b97e2fe, type: 3}
       propertyPath: m_Controller
@@ -1350,6 +1350,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a6f4bdfaa066048bf9fbbd4f18ca39, type: 3}
+--- !u!1001 &822452596
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: fedc4246d781ba14a8b99a0e0721c5a9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.976924
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fedc4246d781ba14a8b99a0e0721c5a9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fedc4246d781ba14a8b99a0e0721c5a9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -13.077476
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fedc4246d781ba14a8b99a0e0721c5a9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fedc4246d781ba14a8b99a0e0721c5a9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fedc4246d781ba14a8b99a0e0721c5a9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fedc4246d781ba14a8b99a0e0721c5a9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fedc4246d781ba14a8b99a0e0721c5a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fedc4246d781ba14a8b99a0e0721c5a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fedc4246d781ba14a8b99a0e0721c5a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fedc4246d781ba14a8b99a0e0721c5a9, type: 3}
+      propertyPath: m_Name
+      value: eastern_witch4@Left Turn
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: fedc4246d781ba14a8b99a0e0721c5a9, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b9d91c1f4200fbf4292496669cb51a45, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fedc4246d781ba14a8b99a0e0721c5a9, type: 3}
 --- !u!1001 &839446801
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1368,7 +1429,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fbc1a03589427c0408b289f121f030cd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.951592
+      value: -18.64129
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fbc1a03589427c0408b289f121f030cd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1526,7 +1587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7f237dcf4737c1347ab29477f838ac08, type: 3}
       propertyPath: m_Name
-      value: witch5@Boxing
+      value: western_witch@Boxing
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 7f237dcf4737c1347ab29477f838ac08, type: 3}
       propertyPath: m_Controller
@@ -1537,6 +1598,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f237dcf4737c1347ab29477f838ac08, type: 3}
+--- !u!1001 &957579184
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 521c32da24a4ab34ab5ce8dc94f2716e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.996576
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 521c32da24a4ab34ab5ce8dc94f2716e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00000023841858
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 521c32da24a4ab34ab5ce8dc94f2716e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -13.110476
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 521c32da24a4ab34ab5ce8dc94f2716e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 521c32da24a4ab34ab5ce8dc94f2716e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 521c32da24a4ab34ab5ce8dc94f2716e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 521c32da24a4ab34ab5ce8dc94f2716e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 521c32da24a4ab34ab5ce8dc94f2716e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 521c32da24a4ab34ab5ce8dc94f2716e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 521c32da24a4ab34ab5ce8dc94f2716e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 521c32da24a4ab34ab5ce8dc94f2716e, type: 3}
+      propertyPath: m_Name
+      value: eastern_witch4@Victory Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 521c32da24a4ab34ab5ce8dc94f2716e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 521e995323cc3c54eaffb4c8db75aca4, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 521c32da24a4ab34ab5ce8dc94f2716e, type: 3}
 --- !u!1001 &978882963
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1587,7 +1709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ca274ece62b278c48bc1ef6013227b8b, type: 3}
       propertyPath: m_Name
-      value: witch5@Standing 2H Magic Attack 01
+      value: western_witch@Standing 2H Magic Attack 01
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: ca274ece62b278c48bc1ef6013227b8b, type: 3}
       propertyPath: m_Controller
@@ -2009,7 +2131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 47a8fa11fe9c09b47bf32aa2bb1e5abc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.954553
+      value: -18.64425
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 47a8fa11fe9c09b47bf32aa2bb1e5abc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2232,7 +2354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1b60a5746d7abd842af76de2d43a0504, type: 3}
       propertyPath: m_Name
-      value: witch5@Victory Idle
+      value: western_witch@Victory Idle
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 1b60a5746d7abd842af76de2d43a0504, type: 3}
       propertyPath: m_Controller
@@ -2322,7 +2444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3cda70b2063fe2a45a671ef1e14186a9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.88
+      value: -18.569698
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3cda70b2063fe2a45a671ef1e14186a9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2434,6 +2556,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a4c02b5e9eb32a40a0dbd6afc3cb1d1, type: 3}
+--- !u!1001 &1302919708
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: e19e05b6228c2bc4ebecaaf549645d6e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.017945
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e19e05b6228c2bc4ebecaaf549645d6e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e19e05b6228c2bc4ebecaaf549645d6e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -14.937231
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e19e05b6228c2bc4ebecaaf549645d6e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e19e05b6228c2bc4ebecaaf549645d6e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e19e05b6228c2bc4ebecaaf549645d6e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e19e05b6228c2bc4ebecaaf549645d6e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e19e05b6228c2bc4ebecaaf549645d6e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e19e05b6228c2bc4ebecaaf549645d6e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e19e05b6228c2bc4ebecaaf549645d6e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e19e05b6228c2bc4ebecaaf549645d6e, type: 3}
+      propertyPath: m_Name
+      value: eastern_witch4@Standing 2H Magic Area Attack 01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: e19e05b6228c2bc4ebecaaf549645d6e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c856f55967b87d84c858bffcb76fbfc1, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e19e05b6228c2bc4ebecaaf549645d6e, type: 3}
 --- !u!1001 &1331819854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2545,7 +2728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 723b0c8de62c6e74eba88b7ae3b09c83, type: 3}
       propertyPath: m_Name
-      value: witch5@Walking
+      value: western_witch@Walking
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 723b0c8de62c6e74eba88b7ae3b09c83, type: 3}
       propertyPath: m_Controller
@@ -2950,6 +3133,128 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1aa8ebac1730094091444c491c5f410, type: 3}
+--- !u!1001 &1583695187
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 023feaa373e982342a5de54e6bc63997, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.96062
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 023feaa373e982342a5de54e6bc63997, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 023feaa373e982342a5de54e6bc63997, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -13.012334
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 023feaa373e982342a5de54e6bc63997, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 023feaa373e982342a5de54e6bc63997, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 023feaa373e982342a5de54e6bc63997, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 023feaa373e982342a5de54e6bc63997, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 023feaa373e982342a5de54e6bc63997, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 023feaa373e982342a5de54e6bc63997, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 023feaa373e982342a5de54e6bc63997, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 023feaa373e982342a5de54e6bc63997, type: 3}
+      propertyPath: m_Name
+      value: eastern_witch4@Right Turn
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 023feaa373e982342a5de54e6bc63997, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c33f038beb3c12844a38b5d6ab20321a, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 023feaa373e982342a5de54e6bc63997, type: 3}
+--- !u!1001 &1614225420
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 20bccc7b51eb882418d48d00a6268766, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.01
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 20bccc7b51eb882418d48d00a6268766, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 20bccc7b51eb882418d48d00a6268766, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -13.23
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 20bccc7b51eb882418d48d00a6268766, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 20bccc7b51eb882418d48d00a6268766, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 20bccc7b51eb882418d48d00a6268766, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 20bccc7b51eb882418d48d00a6268766, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 20bccc7b51eb882418d48d00a6268766, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 20bccc7b51eb882418d48d00a6268766, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 20bccc7b51eb882418d48d00a6268766, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 20bccc7b51eb882418d48d00a6268766, type: 3}
+      propertyPath: m_Name
+      value: eastern_witch4@Boxing
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 20bccc7b51eb882418d48d00a6268766, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ca2142475f3e5354aaf2ed548edeb7f0, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 20bccc7b51eb882418d48d00a6268766, type: 3}
 --- !u!1001 &1696382732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3065,7 +3370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8a73e0335a4cc854b95c83dc5a8820c4, type: 3}
       propertyPath: m_Name
-      value: witch5@Right Turn
+      value: western_witch@Right Turn
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 8a73e0335a4cc854b95c83dc5a8820c4, type: 3}
       propertyPath: m_Controller
@@ -3267,6 +3572,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02005b4854611f745a8b7627d050e96b, type: 3}
+--- !u!1001 &1798881604
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 1af7bd5751ae89043935d1bb6c17e8fb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -18.98
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1af7bd5751ae89043935d1bb6c17e8fb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00000023841858
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1af7bd5751ae89043935d1bb6c17e8fb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12.9485
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1af7bd5751ae89043935d1bb6c17e8fb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1af7bd5751ae89043935d1bb6c17e8fb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1af7bd5751ae89043935d1bb6c17e8fb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1af7bd5751ae89043935d1bb6c17e8fb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1af7bd5751ae89043935d1bb6c17e8fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1af7bd5751ae89043935d1bb6c17e8fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1af7bd5751ae89043935d1bb6c17e8fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1af7bd5751ae89043935d1bb6c17e8fb, type: 3}
+      propertyPath: m_Name
+      value: eastern_witch4@Walking
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 1af7bd5751ae89043935d1bb6c17e8fb, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: fd2e0e10cba891244b6acac81025d21b, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1af7bd5751ae89043935d1bb6c17e8fb, type: 3}
 --- !u!1001 &1811926737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3666,7 +4032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 232974b56c24d8c42b98038dbc910d50, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13.080302
+      value: -18.77
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 232974b56c24d8c42b98038dbc910d50, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4039,3 +4405,9 @@ SceneRoots:
   - {fileID: 1741812253}
   - {fileID: 978882963}
   - {fileID: 1345313663}
+  - {fileID: 1614225420}
+  - {fileID: 1302919708}
+  - {fileID: 957579184}
+  - {fileID: 822452596}
+  - {fileID: 1798881604}
+  - {fileID: 1583695187}
