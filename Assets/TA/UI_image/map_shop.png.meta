@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0b77cd942a485ca4e88daf60debb8a45
+guid: 9a80c2aeb38331e48846e93dba92cb06
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pinocchio_0
+      name: map_shop_0
       rect:
         serializedVersion: 2
-        x: 603
-        y: 177
-        width: 347
-        height: 674
+        x: 0
+        y: 11
+        width: 539
+        height: 521
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3bf32453dd64b54f9f07b0e82d4b841
-      internalID: -143362060
+      spriteID: 0f403945bf803334e995f3ea14d60c24
+      internalID: 1618889180
       vertices: []
       indices: 
       edges: []
@@ -122,7 +122,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 5e1db4e10872db34095823283e776e96
     internalID: 0
     vertices: []
     indices: 
@@ -132,7 +132,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pinocchio_0: -143362060
+      map_shop_0: 1618889180
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
