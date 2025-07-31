@@ -1,10 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 
 namespace BlockCoding
 {
-    public class LoopCommand : BaseCommand
+    public class LoopCommand : IBlockCommand
     {
+        public CommandType Type { get; }
         private readonly List<IBlockCommand> _innerCommands;
         private readonly int _count;
 
@@ -12,17 +13,16 @@ namespace BlockCoding
         {
             _innerCommands = innerCommands;
             _count = count;
+            Type = CommandType.Loop;
         }
 
-        public override CommandType Type => CommandType.Loop;
-
-        public override IEnumerator Execute()
+        public async UniTask ExecuteAsync()
         {
             for (int i = 0; i < _count; i++)
             {
                 foreach (var cmd in _innerCommands)
                 {
-                    yield return cmd.Execute();
+                    await cmd.ExecuteAsync();
                 }
             }
         }

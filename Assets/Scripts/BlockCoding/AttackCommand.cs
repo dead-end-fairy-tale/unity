@@ -1,22 +1,20 @@
-using System.Collections;
-using UnityEngine;
+using Cysharp.Threading.Tasks;
+using Combat;
 
 namespace BlockCoding
 {
-    public class AttackCommand : BaseCommand
+    public class AttackCommand : IBlockCommand
     {
-        private readonly Combat.CombatSystem _combat;
-        public override CommandType Type => CommandType.Attack;
+        public CommandType Type => CommandType.Attack;
+        private readonly CombatSystem _combat;
 
-        public AttackCommand(Combat.CombatSystem combat)
-        {
-            _combat = combat;
-        }
+        public AttackCommand(CombatSystem combat) => _combat = combat;
 
-        public override IEnumerator Execute()
+        public async UniTask ExecuteAsync()
         {
             _combat.PerformAttack();
-            yield return new WaitForSecondsRealtime(0.5f);
+            await _combat.PlayAttackEffectAsync();
+            await UniTask.Delay(300);
         }
     }
 }

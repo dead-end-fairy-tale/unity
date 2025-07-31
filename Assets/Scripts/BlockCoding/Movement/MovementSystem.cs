@@ -14,7 +14,7 @@ namespace Movement
         public float rotationAngle  = 90f;
         public float rotationDuration = 0.2f;
 
-        public IEnumerator PerformMove()
+        public IEnumerator PerformMoveAsync()
         {
             Vector3 start = transform.position;
             Vector3 end   = start + transform.forward * moveDistance;
@@ -28,7 +28,7 @@ namespace Movement
             transform.position = end;
         }
 
-        public IEnumerator PerformRotate(float angle)
+        public IEnumerator PerformRotateAsync(float angle)
         {
             Quaternion start = transform.rotation;
             Quaternion end   = start * Quaternion.Euler(0, angle, 0);
