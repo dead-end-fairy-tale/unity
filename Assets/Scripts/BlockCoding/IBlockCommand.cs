@@ -1,10 +1,10 @@
-using System.Collections;
+using Cysharp.Threading.Tasks;
 
 namespace BlockCoding
 {
     public interface IBlockCommand
     {
         CommandType Type { get; }
-        IEnumerator Execute();
+        UniTask ExecuteAsync();
     }
 }

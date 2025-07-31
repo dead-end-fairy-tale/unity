@@ -1,4 +1,3 @@
-using Cysharp.Threading.Tasks.Triggers;
 using UnityEngine;
 
 namespace Combat
@@ -7,6 +6,7 @@ namespace Combat
     public class AttackPoint : MonoBehaviour
     {
         private CombatSystem _combatSystem;
+        private ParticleSystem _particle;
 
         private void Awake()
         {
@@ -22,6 +22,7 @@ namespace Combat
             if (target != null && _combatSystem != null)
             {
                 int dmg = _combatSystem.damage;
+                _particle.Play();
                 target.TakeDamage(dmg);
                 Debug.Log($"{other.name}에게 {dmg}만큼 데미지!");
             }
