@@ -6,14 +6,17 @@ namespace BlockCoding
     public class DefendCommand : IBlockCommand
     {
         public CommandType Type => CommandType.Defend;
-        private readonly CombatSystem _combat;
+        private readonly CombatSystem combatSystem;
 
-        public DefendCommand(CombatSystem combat) => _combat = combat;
+        public DefendCommand(CombatSystem combat)
+        {
+            combatSystem = combat;
+        }
 
         public async UniTask ExecuteAsync()
         {
-            _combat.PerformDefend();
-            await UniTask.Delay(300);
+            combatSystem.PerformDefend();
+            await UniTask.Delay(200, DelayType.DeltaTime);
         }
     }
 }

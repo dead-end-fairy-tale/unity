@@ -6,14 +6,16 @@ namespace BlockCoding
     public class MoveCommand : IBlockCommand
     {
         public CommandType Type => CommandType.Move;
-        private readonly MovementSystem _mv;
+        private readonly MovementSystem movementSystem;
 
-        public MoveCommand(MovementSystem mv) => _mv = mv;
+        public MoveCommand(MovementSystem movementSystem)
+        {
+            this.movementSystem = movementSystem;
+        }
 
         public async UniTask ExecuteAsync()
         {
-            await _mv.PerformMoveAsync();
-            await UniTask.Delay(300);
+            await movementSystem.PerformMoveAsync();
         }
     }
 }

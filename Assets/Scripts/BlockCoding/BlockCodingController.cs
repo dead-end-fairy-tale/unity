@@ -15,63 +15,47 @@ public class BlockCodingController : MonoBehaviour
     [Header("Movement System")]
     public MovementSystem movementSystem;
 
+    [Header("이 컨트롤러가 플레이어용인가?")]
+    public bool isPlayerController = false;
+
     private List<IBlockCommand> _uiCommands   = new List<IBlockCommand>();
     private List<IBlockCommand> _execCommands = new List<IBlockCommand>();
 
-    private bool _isLooping     = false;
+    private bool _isLooping      = false;
     private int  _loopStartIndex = 0;
-    private int  _loopCount     = 0;
+    private int  _loopCount      = 0;
 
-    private void Start()
+    void Start()
     {
+        if (!isPlayerController) 
+            return;
+
+        // 1) 플레이어만 블록 추가 이벤트 구독
         uiManager.OnAddCommand += HandleAddCommand;
-        uiManager.OnExecute    += () => TurnManager.Instance.StartTurn(this);
     }
 
-    private void OnDestroy()
+    void OnDestroy()
     {
+        if (!isPlayerController) 
+            return;
+
         uiManager.OnAddCommand -= HandleAddCommand;
-        uiManager.OnExecute    -= () => TurnManager.Instance.StartTurn(this);
     }
 
     private void HandleAddCommand(CommandType type)
     {
-        IBlockCommand cmd = null;
-
-        switch (type)
+        IBlockCommand cmd = type switch
         {
-            case CommandType.Attack:
-                cmd = new AttackCommand(combatSystem);
-                break;
-
-            case CommandType.Defend:
-                cmd = new DefendCommand(combatSystem);
-                break;
-
-            case CommandType.Move:
-                cmd = new MoveCommand(movementSystem);
-                break;
-
-            case CommandType.RotateLeft:
-                cmd = new RotateCommand(movementSystem, -movementSystem.rotationAngle);
-                break;
-
-            case CommandType.RotateRight:
-                cmd = new RotateCommand(movementSystem,  movementSystem.rotationAngle);
-                break;
-
-            case CommandType.LoopStart:
-                cmd = StartLoop();
-                break;
-
-            case CommandType.Loop:
-                if (_isLooping)
-                    cmd = EndLoop();
-                break;
-        }
-
-        if (cmd == null)
-            return;
+            CommandType.Attack      => new AttackCommand(combatSystem),
+            CommandType.Defend      => new DefendCommand(combatSystem),
+            CommandType.Move        => new MoveCommand(movementSystem),
+            CommandType.RotateLeft  => new RotateCommand(movementSystem, -movementSystem.rotationAngle),
+            CommandType.RotateRight => new RotateCommand(movementSystem,  movementSystem.rotationAngle),
+            CommandType.LoopStart   => StartLoop(),
+            CommandType.Loop        => _isLooping ? EndLoop() : null,
+            _                       => null
+        };
+        if (cmd == null) return;
 
         _uiCommands.Add(cmd);
         if (cmd.Type != CommandType.LoopStart)
@@ -82,9 +66,9 @@ public class BlockCodingController : MonoBehaviour
 
     private IBlockCommand StartLoop()
     {
-        _isLooping       = true;
-        _loopStartIndex  = _execCommands.Count;
-        _loopCount       = 1;
+        _isLooping      = true;
+        _loopStartIndex = _execCommands.Count;
+        _loopCount      = 1;
         return new LoopStartCommand();
     }
 
@@ -94,16 +78,14 @@ public class BlockCodingController : MonoBehaviour
         var inner = _execCommands.GetRange(_loopStartIndex, count);
         _execCommands.RemoveRange(_loopStartIndex, count);
 
+        _isLooping = false;
         var loopCmd = new LoopCommand(inner, _loopCount);
         _execCommands.Add(loopCmd);
-        _isLooping = false;
         return loopCmd;
     }
 
     public List<IBlockCommand> GetExecCommands()
-    {
-        return new List<IBlockCommand>(_execCommands);
-    }
+        => new List<IBlockCommand>(_execCommands);
 
     public void ClearAllCommands()
     {

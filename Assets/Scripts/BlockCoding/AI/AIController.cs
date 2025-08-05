@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using BlockCoding;
 
@@ -13,5 +14,8 @@ namespace AI
 
         public List<IBlockCommand> DecideCommands()
             => decisionMaker.DecideCommands(aiBlocks, playerController);
+
+        public IBlockCommand DecideNextCommand()
+            => DecideCommands().FirstOrDefault();
     }
 }
