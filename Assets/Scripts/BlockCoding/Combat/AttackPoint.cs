@@ -1,4 +1,3 @@
-// Assets/Scripts/BlockCoding/Combat/AttackPoint.cs
 using UnityEngine;
 
 namespace Combat

@@ -44,20 +44,16 @@ public class TurnManager : MonoBehaviour
 
         playerController.ClearAllCommands();
 
-        // 1) TurnManager 파괴 시
         var turnToken = this.GetCancellationTokenOnDestroy();
 
-        // 2) 각 적 오브젝트 파괴 시
         var enemyTokens = enemyControllers
             .Where(e => e != null)
             .Select(e => e.GetCancellationTokenOnDestroy());
 
-        // 3) 두 토큰을 묶은 Linked CTS 생성
         var linkedCts = CancellationTokenSource.CreateLinkedTokenSource(
             new[] { turnToken }.Concat(enemyTokens).ToArray()
         );
 
-        // 4) 연결된 토큰을 이용해 라운드 실행
         NextRoundAsync(linkedCts.Token)
             .AttachExternalCancellation(linkedCts.Token)
             .Forget();
@@ -72,7 +68,6 @@ public class TurnManager : MonoBehaviour
                 int round = i + 1;
                 Debug.Log($"------ 라운드 {round} ------");
 
-                // 플레이어 명령
                 Debug.Log($"플레이어 명령 {round} 시작");
                 if (token.IsCancellationRequested) break;
                 await _battleCommands[i]
@@ -80,11 +75,10 @@ public class TurnManager : MonoBehaviour
                     .AttachExternalCancellation(token);
                 Debug.Log($"플레이어 명령 {round} 끝");
 
-                // 적 명령
                 for (int j = 0; j < enemyControllers.Count; j++)
                 {
                     var enemy = enemyControllers[j];
-                    if (enemy == null)   // 이미 파괴된 적은 건너뛰기
+                    if (enemy == null)
                         continue;
 
                     var cmd = enemy.DecideNextCommand();
