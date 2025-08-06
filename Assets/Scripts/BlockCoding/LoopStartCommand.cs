@@ -1,10 +1,10 @@
-using System.Collections;
+using Cysharp.Threading.Tasks;
 
 namespace BlockCoding
 {
-    public class LoopStartCommand : BaseCommand
+    public class LoopStartCommand : IBlockCommand
     {
-        public override CommandType Type => CommandType.LoopStart;
-        public override IEnumerator Execute() => System.Linq.Enumerable.Empty<IEnumerator>().GetEnumerator().Current;
+        public CommandType Type => CommandType.LoopStart;
+        public UniTask ExecuteAsync() => UniTask.CompletedTask;
     }
 }

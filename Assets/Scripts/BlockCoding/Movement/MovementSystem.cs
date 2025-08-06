@@ -1,20 +1,16 @@
 using UnityEngine;
-using System.Collections;
+using Cysharp.Threading.Tasks;
 
 namespace Movement
 {
-    [RequireComponent(typeof(Transform))]
     public class MovementSystem : MonoBehaviour
     {
-        [Header("Move Settings")]
         public float moveDistance   = 1f;
         public float moveDuration   = 0.2f;
-
-        [Header("Rotate Settings")]
-        public float rotationAngle  = 90f;
+        public float rotationAngle   = 90f;
         public float rotationDuration = 0.2f;
 
-        public IEnumerator PerformMove()
+        public async UniTask PerformMoveAsync()
         {
             Vector3 start = transform.position;
             Vector3 end   = start + transform.forward * moveDistance;
@@ -23,21 +19,21 @@ namespace Movement
             {
                 transform.position = Vector3.Lerp(start, end, t / moveDuration);
                 t += Time.deltaTime;
-                yield return null;
+                await UniTask.Yield();
             }
             transform.position = end;
         }
 
-        public IEnumerator PerformRotate(float angle)
+        public async UniTask PerformRotateAsync(float angle)
         {
             Quaternion start = transform.rotation;
-            Quaternion end   = start * Quaternion.Euler(0, angle, 0);
+            Quaternion end   = start * Quaternion.Euler(0f, angle, 0f);
             float t = 0f;
             while (t < rotationDuration)
             {
                 transform.rotation = Quaternion.Slerp(start, end, t / rotationDuration);
                 t += Time.deltaTime;
-                yield return null;
+                await UniTask.Yield();
             }
             transform.rotation = end;
         }

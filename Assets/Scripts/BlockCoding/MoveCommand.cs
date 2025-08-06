@@ -1,15 +1,21 @@
-using System.Collections;
+using Cysharp.Threading.Tasks;
 using Movement;
 
 namespace BlockCoding
 {
-    public class MoveCommand : BaseCommand
+    public class MoveCommand : IBlockCommand
     {
-        private readonly MovementSystem _mv;
-        public override CommandType Type => CommandType.Move;
+        public CommandType Type => CommandType.Move;
+        private readonly MovementSystem movementSystem;
 
-        public MoveCommand(MovementSystem mv) => _mv = mv;
+        public MoveCommand(MovementSystem movementSystem)
+        {
+            this.movementSystem = movementSystem;
+        }
 
-        public override IEnumerator Execute() => _mv.PerformMove();
+        public async UniTask ExecuteAsync()
+        {
+            await movementSystem.PerformMoveAsync();
+        }
     }
 }

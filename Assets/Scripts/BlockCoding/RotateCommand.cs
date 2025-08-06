@@ -1,21 +1,24 @@
-using System.Collections;
+using Cysharp.Threading.Tasks;
 using Movement;
 
 namespace BlockCoding
 {
-    public class RotateCommand : BaseCommand
+    public class RotateCommand : IBlockCommand
     {
-        private readonly MovementSystem _mv;
-        private readonly float _angle;
-        public override CommandType Type =>
-            _angle < 0 ? CommandType.RotateLeft : CommandType.RotateRight;
+        public CommandType Type { get; }
+        private readonly MovementSystem movementSystem;
+        private readonly float angle;
 
-        public RotateCommand(MovementSystem mv, float angle)
+        public RotateCommand(MovementSystem movementSystem, float angle)
         {
-            _mv    = mv;
-            _angle = angle;
+            this.movementSystem = movementSystem;
+            this.angle          = angle;
+            Type = angle < 0 ? CommandType.RotateLeft : CommandType.RotateRight;
         }
 
-        public override IEnumerator Execute() => _mv.PerformRotate(_angle);
+        public async UniTask ExecuteAsync()
+        {
+            await movementSystem.PerformRotateAsync(angle);
+        }
     }
 }

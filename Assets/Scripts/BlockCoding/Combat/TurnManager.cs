@@ -1,61 +1,107 @@
-// Scripts/Turn/TurnManager.cs
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
+using Cysharp.Threading.Tasks;
 using BlockCoding;
 using AI;
+using System.Collections.Generic;
+using System.Threading;
+using System.Linq;
 
 public class TurnManager : MonoBehaviour
 {
     public static TurnManager Instance { get; private set; }
 
-    [Header("Controllers")]
+    [Header("플레이어 블록 코딩 컨트롤러")]
     public BlockCodingController playerController;
-    public BlockCodingController aiController;
-    public AIController        aiDecider;
 
-    private void Awake()
+    [Header("적 AI 컨트롤러들")]
+    public List<AIController> enemyControllers;
+
+    private List<IBlockCommand> _battleCommands;
+
+    void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
     }
 
-    /// <summary>Execute 버튼 클릭 시 호출됩니다.</summary>
-    public void StartTurn(BlockCodingController caller)
+    void OnEnable()
     {
-        if (caller != playerController) return;
-
-        var playerCmds = playerController.GetExecCommands();
-        var aiCmds     = aiDecider.DecideCommands();
-
-        StartCoroutine(RunTurnSequence(playerCmds, aiCmds));
+        if (playerController?.uiManager != null)
+            playerController.uiManager.OnExecute += StartBattle;
     }
 
-    private IEnumerator RunTurnSequence(
-        List<IBlockCommand> playerCmds,
-        List<IBlockCommand> aiCmds)
+    void OnDisable()
     {
-        int maxCount = Mathf.Max(playerCmds.Count, aiCmds.Count);
+        if (playerController?.uiManager != null)
+            playerController.uiManager.OnExecute -= StartBattle;
+    }
 
-        for (int i = 0; i < maxCount; i++)
-        {
-            if (i < playerCmds.Count && !IsDead(playerController))
-                yield return playerCmds[i].Execute();
-
-            if (i < aiCmds.Count && !IsDead(aiController))
-                yield return aiCmds[i].Execute();
-
-            if (IsDead(playerController) || IsDead(aiController))
-                break;
-
-            yield return new WaitForSecondsRealtime(0.3f);
-        }
+    public void StartBattle()
+    {
+        _battleCommands = playerController.GetExecCommands();
+        Debug.Log($"[TurnManager] 전투용 명령 개수: {_battleCommands.Count}");
 
         playerController.ClearAllCommands();
-        aiController.ClearAllCommands();
-        // TODO: 승패 처리 UI 호출
+
+        var turnToken = this.GetCancellationTokenOnDestroy();
+
+        var enemyTokens = enemyControllers
+            .Where(e => e != null)
+            .Select(e => e.GetCancellationTokenOnDestroy());
+
+        var linkedCts = CancellationTokenSource.CreateLinkedTokenSource(
+            new[] { turnToken }.Concat(enemyTokens).ToArray()
+        );
+
+        NextRoundAsync(linkedCts.Token)
+            .AttachExternalCancellation(linkedCts.Token)
+            .Forget();
     }
 
-    private bool IsDead(BlockCodingController ctrl)
-        => ctrl.combatSystem == null || ctrl.combatSystem.IsDead();
+    async UniTask NextRoundAsync(CancellationToken token)
+    {
+        try
+        {
+            for (int i = 0; i < _battleCommands.Count; i++)
+            {
+                int round = i + 1;
+                Debug.Log($"------ 라운드 {round} ------");
+
+                Debug.Log($"플레이어 명령 {round} 시작");
+                if (token.IsCancellationRequested) break;
+                await _battleCommands[i]
+                    .ExecuteAsync()
+                    .AttachExternalCancellation(token);
+                Debug.Log($"플레이어 명령 {round} 끝");
+
+                for (int j = 0; j < enemyControllers.Count; j++)
+                {
+                    var enemy = enemyControllers[j];
+                    if (enemy == null)
+                        continue;
+
+                    var cmd = enemy.DecideNextCommand();
+                    Debug.Log($"적 {j + 1} ({enemy.name}) 시작");
+                    if (cmd != null)
+                        await cmd
+                            .ExecuteAsync()
+                            .AttachExternalCancellation(token);
+                    Debug.Log($"적 {j + 1} ({enemy.name}) 끝");
+                }
+
+                await UniTask
+                    .Delay(200)
+                    .AttachExternalCancellation(token);
+            }
+        }
+        catch (OperationCanceledException)
+        {
+            Debug.LogWarning("[TurnManager] 전투가 취소되었습니다.");
+        }
+        finally
+        {
+            Debug.Log("전투 종료!");
+        }
+    }
 }
