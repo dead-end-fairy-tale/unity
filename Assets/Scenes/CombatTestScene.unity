@@ -1333,7 +1333,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00004005432, y: 0.0009712792}
+  m_AnchoredPosition: {x: 0.00004005432, y: 0.0009750341}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1291731764
@@ -1780,7 +1780,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 729870425}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999565
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -44667,7 +44667,7 @@ MonoBehaviour:
   damage: 1
   maxHealth: 3
   attackPoint: {fileID: 1446993652}
-  hitTimeNormalized: 0.5
+  hitTimeNormalized: 0.084
 --- !u!114 &8497053495902423229
 MonoBehaviour:
   m_ObjectHideFlags: 0
